@@ -1,0 +1,50 @@
+.dropdownContainer {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdownButton {
+    display: flex; /* Use Flexbox for alignment */
+    align-items: center; /* Vertically align items */
+    justify-content: space-between; /* Ensure space between text and icon */
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .dropdownButton span {
+    flex-grow: 1; /* Pushes the icon to the right */
+    text-align: left; /* Ensures the text is aligned left */
+  }
+  
+  .dropdownIcon {
+    margin-left: auto; /* Ensures the icon is aligned to the right */
+  }
+  
+  .dropdownMenu {
+    position: absolute;
+    top: 100%; /* Position the dropdown below the button */
+    left: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    z-index: 10;
+  }
+  
+  .dropdownMenu li {
+    padding: 5px 10px;
+  }
+  
+  .dropdownMenu li a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  .dropdownMenu li a:hover {
+    color: #0070f3;
+  }
+  

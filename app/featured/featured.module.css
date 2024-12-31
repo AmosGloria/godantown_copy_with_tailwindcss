@@ -1,0 +1,32 @@
+.heading {
+    text-align: center;
+    margin: 20px 0; /* Add some spacing above and below the heading */
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  .flexContainer {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    justify-content: space-between; /* Spread items evenly */
+    align-items: center;
+    gap: 20px; /* Spacing between images */
+    margin-top: 25px; /* Space between the heading and images */
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  
+  .flexContainer > :nth-last-child(1) {
+    flex-basis: 100%; /* Move the last child to a new line */
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .image {
+    width: 130px; /* Reduced width */
+    height: auto; /* Maintain aspect ratio */
+  }
+  

@@ -1,0 +1,35 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--background-color, rgb(224, 194, 194)); /* Background color with default */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.circle {
+  width: var(--circle-size, 60px); /* Dynamic circle size */
+  height: var(--circle-size, 60px);
+  background-color: var(--circle-color, navy); /* Dynamic circle color */
+  border-radius: 50%; /* Makes it a circle */
+  animation: pop var(--animation-duration, 1.5s) infinite ease-in-out; /* Dynamic duration */
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.5); /* Smaller at start */
+    opacity: 0; /* Fully transparent at start */
+  }
+  50% {
+    transform: scale(1.5); /* Enlarges in the middle */
+    opacity: 1; /* Fully visible at the middle */
+  }
+  100% {
+    transform: scale(0.5); /* Shrinks back */
+    opacity: 0; /* Gradually fades out at the end */
+  }
+}

@@ -1,0 +1,56 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    min-height: 100vh;
+    background-color: white;
+  }
+  
+  .leftSection {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+  }
+  
+  .leftSection h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    color: rgb(20, 19, 19);
+    font-family: 'Times New Roman', Times, serif;
+    margin-bottom: 18px;
+    margin-left: 15%;
+    line-height: 1;
+  }
+  
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    margin-left: 15%;
+  }
+  
+  .appButton {
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  
+  .rightSection {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .transactionsImage {
+    width: 300%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 10px;
+    margin-right: 15%;
+  }
+  
