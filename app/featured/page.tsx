@@ -1,9 +1,36 @@
-import React from 'react';
+"use client";
+import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './Featured.module.css';
 
 const FeaturedOn = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(false); // Reset the animation
+          setTimeout(() => setIsVisible(true), 10); // Reapply animation
+        }
+      },
+      { threshold: 0.5 } // Trigger when 50% of the section is visible
+    );
+
+    const refCurrent = sectionRef.current;
+    if (refCurrent) {
+      observer.observe(refCurrent);
+    }
+
+    return () => {
+      if (refCurrent) {
+        observer.unobserve(refCurrent);
+      }
+    };
+  }, []);
+
   const links = [
     {
       url: 'https://www.vanguardngr.com/2021/10/dantown-partners-with-techrity-to-advance-tech-penetration-in-niger-delta-communities/',
@@ -43,7 +70,12 @@ const FeaturedOn = () => {
   ];
 
   return (
-    <div>
+    <div
+      ref={sectionRef}
+      className={`${styles.flexContainer} ${
+        isVisible ? styles.visible : styles.hidden
+      }`}
+    >
       <h1 className={styles.heading}>We are featured on</h1>
       <div className={styles.flexContainer}>
         {links.map((link, index) => (

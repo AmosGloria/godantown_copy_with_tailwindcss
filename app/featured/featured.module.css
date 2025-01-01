@@ -1,32 +1,60 @@
 .heading {
-    text-align: center;
-    margin: 20px 0; /* Add some spacing above and below the heading */
-    font-size: 2rem;
-    font-weight: bold;
+  text-align: center; /* Centers text within the heading element */
+  margin: 0 auto 20px auto; /* Centers the heading horizontally and adds spacing below it */
+  font-size: 2rem;
+  font-weight: bold;
+  display: block; /* Ensures it behaves like a block element */
+  width: fit-content; /* Makes the width of the heading just enough to fit its content */
+}
+
+.flexContainer {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  justify-content: flex-start; /* Align items from the left */
+  align-items: center; /* Align all items on the same vertical level */
+  gap: 20px; /* Spacing between images */
+  margin-top: 25px; /* Space between the heading and the images */
+  overflow-x: visible; /* Ensure wrapping without horizontal scrolling */
+}
+
+.flexContainer > :nth-last-child(1) {
+  flex-basis: 100%; /* Force the last child onto a new line */
+  text-align: center; /* Center text inside the container */
+  display: flex;
+  justify-content: center; /* Center the last child horizontally */
+  margin-top: 20px; /* Add spacing above the last child */
+}
+
+.flexContainer img {
+  display: block; /* Prevent images from being treated as inline elements */
+  height: 80px; /* Set a uniform height for all images */
+  object-fit: contain; /* Ensure images fit within the set dimensions */
+}
+
+
+.image {
+  width: 125px; /* Reduced width */
+  height: auto; /* Maintain aspect ratio */
+}
+
+@keyframes moveUp {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
   }
-  
-  .flexContainer {
-    display: flex;
-    flex-wrap: wrap; /* Allow items to wrap to the next line */
-    justify-content: space-between; /* Spread items evenly */
-    align-items: center;
-    gap: 20px; /* Spacing between images */
-    margin-top: 25px; /* Space between the heading and images */
-    margin-left: 10%;
-    margin-right: 10%;
+  50% {
+    transform: translateY(-10px);
+    opacity: 1;
   }
-  
-  .flexContainer > :nth-last-child(1) {
-    flex-basis: 100%; /* Move the last child to a new line */
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
+  100% {
+    transform: translateY(0);
   }
-  
-  .image {
-    width: 130px; /* Reduced width */
-    height: auto; /* Maintain aspect ratio */
-  }
-  
+}
+
+.visible {
+  animation: moveUp 3s ease-out forwards;
+}
+
+.hidden {
+  opacity: 0;
+}
