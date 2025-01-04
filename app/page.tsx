@@ -6,7 +6,8 @@ import Opportunities from './opportunities/page';
 import FeaturedOn from './featured/page';
 import BankOnYourTerms from './gotIt/page';
 import DantownHappiness from './usingDantown/page';
-import './globalStyles/globals.css'; // Import global styles
+import StepsNow from './takeTheseSteps/page';
+import Footer from './components/footer/page';
 
 export default function Home() {
   return (
@@ -18,6 +19,8 @@ export default function Home() {
       <FeaturedOn/>
       <BankOnYourTerms/>
       <DantownHappiness/>
+      <StepsNow/>
+      <Footer/>
     </div>
   );
 }

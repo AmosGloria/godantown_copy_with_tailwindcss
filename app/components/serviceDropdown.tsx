@@ -1,19 +1,22 @@
 "use client";
 
-import { useState } from 'react';
+import { FC } from "react"; // Import FC for typing functional components
 import { AiFillCaretDown } from "react-icons/ai";
-import Link from 'next/link';
-import styles from './serviceDropdown.module.css'; // Add a CSS module for styling
+import Link from "next/link";
+import styles from "./serviceDropdown.module.css";
 
-const ServiceDropdown = () => {
-  const [isOpen, setIsOpen] = useState(false);
+interface DropdownProps {
+  isOpen: boolean;
+  toggleDropdown: () => void;
+  closeDropdown: () => void;
+}
 
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
-  };
-
+const ServiceDropdown: FC<DropdownProps> = ({ isOpen, toggleDropdown, closeDropdown }) => {
   return (
-    <div className={styles.dropdownContainer}>
+    <div
+      className={styles.dropdownContainer}
+      onClick={(e) => e.stopPropagation()} // Prevents event bubbling
+    >
       <button onClick={toggleDropdown} className={styles.dropdownButton}>
         <span>Services</span>
         <AiFillCaretDown className={styles.dropdownIcon} />
@@ -21,16 +24,16 @@ const ServiceDropdown = () => {
 
       {isOpen && (
         <ul className={styles.dropdownMenu}>
-          <li>
+          <li onClick={closeDropdown}>
             <Link href="/crypto">Crypto</Link>
           </li>
-          <li>
+          <li onClick={closeDropdown}>
             <Link href="/utilityPayment">Utility Payments</Link>
           </li>
-          <li>
+          <li onClick={closeDropdown}>
             <Link href="/airtime">Airtime</Link>
           </li>
-          <li>
+          <li onClick={closeDropdown}>
             <Link href="/virtual-card">Virtual Dollar Card</Link>
           </li>
         </ul>

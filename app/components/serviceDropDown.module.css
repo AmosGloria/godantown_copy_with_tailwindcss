@@ -1,6 +1,11 @@
 .dropdownContainer {
     position: relative;
     display: inline-block;
+      margin-left: 6%;
+      margin-right: 6%;
+      padding-left:3%;
+      padding-right: 3%;
+      margin-top: 2%;
   }
   
   .dropdownButton {
@@ -32,7 +37,7 @@
     list-style: none;
     padding: 10px;
     margin: 0;
-    z-index: 10;
+    z-index: 1000;
   }
   
   .dropdownMenu li {

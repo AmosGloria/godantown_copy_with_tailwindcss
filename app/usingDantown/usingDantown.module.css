@@ -1,0 +1,96 @@
+@keyframes moveToCenterLeft {
+    0% {
+      transform: translateX(-100px); /* Start shifted to the left */
+      opacity: 0; /* Start invisible */
+    }
+    100% {
+      transform: translateX(0); /* End at the center */
+      opacity: 1; /* Fully visible */
+    }
+  }
+  
+  @keyframes moveToCenterRight {
+    0% {
+      transform: translateX(100px); /* Start shifted to the right */
+      opacity: 0; /* Start invisible */
+    }
+    100% {
+      transform: translateX(0); /* End at the center */
+      opacity: 1; /* Fully visible */
+    }
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-between; /* Space between the left and right sections */
+    align-items: center; /* Vertically align content */
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 6%;
+    margin-right: 6%;
+  }
+  
+  .leftSection {
+    flex: 1; /* Allow the left section to take up equal space */
+    opacity: 0; /* Start invisible */
+    transform: translateX(-100px); /* Start shifted to the left */
+    transition: transform 0.5s, opacity 0.5s;
+  }
+  
+  .leftSection.animate {
+    animation: moveToCenterRight 2s ease-out forwards; /* Move rightward to the center */
+  }
+  
+  .usingDantownImage {
+    max-width: 100%; /* Ensure the image scales properly */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+  .rightSection {
+    flex: 1; /* Allow the right section to take up equal space */
+    display: flex;
+    flex-direction: column; /* Arrange heading, paragraph, and buttons vertically */
+    justify-content: flex-start; /* Align content to the top */
+    align-items: flex-start; /* Default alignment before animation */
+    text-align: left; /* Ensure text aligns to the left */
+    opacity: 0; /* Start invisible */
+    transform: translateX(100px); /* Start shifted to the right */
+    transition: transform 0.5s, opacity 0.5s;
+  }
+  
+  .rightSection.animate {
+    animation: moveToCenterLeft 2s ease-out forwards; /* Move leftward to the center */
+  }
+  
+  .rightSection h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  .rightSection p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 30px;
+  }
+
+  .dantownLinep {
+    display: block;
+  }
+  
+  .dantownLineh {
+    display: block;
+    font-weight: bold;
+  }
+  
+  .downloadButtons {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+    margin-top: 20px;
+  }
+  
+  .appStoreImage,
+  .googlePlayImage {
+    cursor: pointer;
+  }
+  

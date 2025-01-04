@@ -1,3 +1,10 @@
+.container{
+    margin-left: 6%;
+    margin-right: 6%;
+    padding-left:3%;
+    padding-right: 3%;
+}
+
 @keyframes moveRight {
   0% {
     transform: translateX(-100px); /* Start off-screen to the left */
