@@ -1,6 +1,6 @@
 "use client";
 
-import { FC } from "react";
+import { FC, useEffect, useRef } from "react";
 import { AiFillCaretDown } from "react-icons/ai";
 import Link from "next/link";
 import styles from "./companyDropdown.module.css";
@@ -13,9 +13,30 @@ interface DropdownProps {
 }
 
 const CompanyDropdown: FC<DropdownProps> = ({ isOpen, toggleDropdown, closeDropdown }) => {
+  const dropdownRef = useRef<HTMLDivElement>(null); // Reference to the dropdown container
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        closeDropdown(); // Close the dropdown if the click is outside
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside); // Cleanup listener on unmount
+    };
+  }, [isOpen, closeDropdown]);
+
   return (
     <div
       className={styles.dropdownContainer}
+      ref={dropdownRef} // Attach the ref to the dropdown container
       onClick={(e) => e.stopPropagation()} // Prevents event bubbling
     >
       <button onClick={toggleDropdown} className={styles.dropdownButton}>
