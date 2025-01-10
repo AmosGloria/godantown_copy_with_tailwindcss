@@ -55,7 +55,7 @@ const ServiceDropdown: FC<DropdownProps> = ({ isOpen, toggleDropdown, closeDropd
             <Link href="/airtime">Airtime</Link>
           </li>
           <li onClick={closeDropdown}>
-            <Link href="/virtual-card">Virtual Dollar Card</Link>
+            <Link href="/virtualDollarCard">Virtual Dollar Card</Link>
           </li>
         </ul>
       )}

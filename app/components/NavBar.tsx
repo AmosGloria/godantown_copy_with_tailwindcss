@@ -48,10 +48,10 @@ const Navbar = () => {
           <li>
             <Link href="/virtual-card">Become an Ambassador</Link>
           </li>
-          <li className={styles.downloadButtonContainer}>
-            <button className={styles.downloadButton}>Scan to Download App</button>
-          </li>
         </ul>
+        <div className={styles.downloadButtonContainer}>
+          <button className={styles.downloadButton}>Scan to Download App</button>
+        </div>
       </nav>
     </>
   );

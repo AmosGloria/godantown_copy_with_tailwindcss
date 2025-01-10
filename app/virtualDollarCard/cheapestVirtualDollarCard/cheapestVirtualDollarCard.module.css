@@ -1,0 +1,67 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    gap: 2rem; /* Space between the image and text */
+    max-width: 1200px; /* Constrain max width */
+    margin: 5rem auto 0; /* Add top margin to shift the page down */
+  }
+  
+  .left {
+    flex: 1; /* Allocate equal space for image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Ensure smooth animation boundaries */
+  }
+  
+  .image {
+    max-width: 100%; /* Ensure the image scales responsively */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; 
+    transition: transform 2s ease; /* Smooth animation */
+  }
+  
+  .imageContainer.animate .image {
+    transform: translateX(50px); /* Move image 50px to the right */
+  }
+  
+  .right {
+    flex: 1; /* Allocate equal space for text content */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem; /* Space between elements */
+  }
+  
+  .title {
+    font-size: 2.2rem;
+    line-height: 1.5;
+    font-weight: bold;
+    color: #000;
+  }
+  
+  .description {
+    font-size: 1.4rem;
+    line-height: 1.8;
+    color: #4b5563;
+  }
+  
+  .button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #0854ac; /* Button color */
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #005bb5; /* Darker shade on hover */
+  }
+  

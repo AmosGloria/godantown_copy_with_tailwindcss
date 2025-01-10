@@ -1,0 +1,58 @@
+.container {
+    display: flex;
+    align-items: center; /* Vertically align items */
+    justify-content: center; /* Horizontally center all items */
+    gap: 2rem; /* Space between the left and right sections */
+    max-width: 1200px;
+    margin-left: 6%;
+    margin-right: 6%;
+    padding: 0 2rem;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    min-height: 100vh; /* Full viewport height */
+    margin-top: -10rem; /* Move the container up */
+    position: relative; /* Position for transform */
+    transition: transform 3s ease-in-out; /* Smooth movement to the left */
+  }
+  
+  .container.move-left {
+    transform: translateX(-50px); /* Move the container 50px to the left */
+  }
+  
+  .left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Space between the heading and paragraph */
+    text-align: left; /* Left-align the text content */
+  }
+  
+  .title {
+    font-size: 2.5rem; /* Large heading font size */
+    color: #000;
+  }
+  
+  .description {
+    font-size: 1.3rem; /* Larger paragraph font size */
+    line-height: 1.8;
+    color: #4b5563;
+  }
+  
+  .right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden; /* Ensure smooth animation boundaries */
+  }
+  
+  .image {
+    max-width: 100%;
+    height: auto;
+    transition: transform 2s ease; /* Smooth transition */
+  }
+  
+  .animate .image {
+    transform: translateX(-50px); /* Move the image 50px to the left */
+  }
+  
