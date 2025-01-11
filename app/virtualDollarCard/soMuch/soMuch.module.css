@@ -27,8 +27,9 @@
   }
   
   .title {
-    font-size: 2.5rem; /* Large heading font size */
+    font-size: 2.2rem; /* Large heading font size */
     color: #000;
+    line-height: 1.2;
   }
   
   .description {

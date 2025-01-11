@@ -6,6 +6,7 @@ import BestVirtualCard from "./bestVirtualCard/page";
 import CheapestVirtualDollarCard from "./cheapestVirtualDollarCard/page";
 import StressFreeSide from "./stressFreeSide/page";
 import SoMuchEase from "./soMuch/page";
+import Shopping from "./shopping/page";
 import styles from "./VirtualDollarCard.module.css";
 
 // Metadata override for this page
@@ -86,6 +87,7 @@ export default function virtualDollarCard() {
       <CheapestVirtualDollarCard/>
       <StressFreeSide/>
       <SoMuchEase/>
+      <Shopping/>
       <Footer />
     </>
   );
