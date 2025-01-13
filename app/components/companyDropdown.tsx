@@ -47,7 +47,7 @@ const CompanyDropdown: FC<DropdownProps> = ({ isOpen, toggleDropdown, closeDropd
       {isOpen && (
         <ul className={styles.dropdownMenu}>
           <li onClick={closeDropdown}>
-            <Link href="/about">About Us</Link>
+            <Link href="/aboutUs">About Us</Link>
           </li>
           <li onClick={closeDropdown}>
             <Link href="/services">Services</Link>

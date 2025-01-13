@@ -1,0 +1,137 @@
+/* FAQ Container */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align the row to the left */
+    text-align: center;
+    margin: 2% 6%; /* Adjusted for consistent spacing */
+    padding: 1rem;
+    max-width: 100%; /* Ensure the container spans the viewport width */
+    overflow-x: auto; /* Allows horizontal scrolling if necessary */
+    margin-bottom: 5%;
+    padding-bottom: 5%;
+}
+
+/* Title and Subtitle */
+.title {
+    font-size: 3rem; /* Increased title size */
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    line-height: 1;
+    padding-left: 4%;
+    padding-right: 4%;
+}
+
+.head2{
+    display: block;
+}
+
+.subtitle {
+    font-size: 1.5rem; /* Increased subtitle size */
+    margin-bottom: 2.5rem;
+    color: rgb(124, 121, 121);
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+/* FAQ Row */
+.faqRow {
+    display: flex;
+    flex-wrap: nowrap; /* Ensures all divs are on one line */
+    justify-content: flex-start; /* Align items to the start */
+    gap: 2rem; /* Adds spacing between FAQ items */
+    width: max-content; /* Ensures row width adjusts to fit all items */
+    overflow-x: auto; /* Allows scrolling if content exceeds screen width */
+    padding: 1rem;
+}
+
+/* FAQ Item */
+.faqItem {
+    background: white;
+    border-radius: 1.5rem;
+    padding: 0; /* Remove extra padding to align content precisely */
+    width: 530px; 
+    height: 650px; 
+    text-align: left;
+    display: flex;
+    flex-direction: column; /* Ensures proper stacking of elements */
+    align-items: stretch; /* Ensures child elements span the full width */
+    overflow: hidden; /* Prevents content overflow */
+}
+
+/* Hover Effect for FAQ Item */
+.faqItem:hover {
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Adds a shadow on hover */
+}
+
+/* Image */
+.image {
+    width: 100%; /* Ensure image spans the full width of the div */
+    height: 250px; /* Adjust height as needed */
+    object-fit: cover; /* Ensures the image fills the area without distortion */
+    border-top-left-radius: 1.5rem; /* Match div's rounded corners */
+    border-top-right-radius: 1.5rem; /* Match div's rounded corners */
+    margin: 0; /* Remove margins to align with edges */
+}
+
+/* Question and Answer Titles */
+.questionTitle {
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 1.2rem; /* Increased font size */
+    margin: 1rem 1rem 0.5rem; /* Adjust spacing for better alignment */
+    padding-left: 3%;
+}
+
+.question{
+    font-size: 1.3rem; /* Increased font size */
+    margin: 1rem 1rem 0.5rem; /* Adjust spacing for better alignment */
+    padding-left: 3%;
+}
+
+.answerTitle {
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 1.2rem; /* Increased font size */
+    margin: 1rem 1rem 0.5rem; /* Adjust spacing for better alignment */
+    padding-left: 3%;
+}
+
+.answer{
+    font-size: 1.2rem; /* Increased font size */
+    margin: 1rem 1rem 0.5rem; /* Adjust spacing for better alignment */
+    padding-left: 3%; 
+    color: rgb(124, 121, 121);
+    line-height: 2;
+}
+
+/* Ordered List */
+.olStyled {
+    padding-left: 9%;
+    margin: 1rem 1rem 0.5rem; /* Adjust spacing for better alignment */
+    color: rgb(124, 121, 121);
+    list-style-type: disc; /* Ensures bullets are shown */
+    line-height: 3;
+}
+
+.faqItem ol li {
+    margin: 1rem 1rem 0.5rem; /* Adjust spacing for better alignment */
+    padding-left: 3%;
+}
+
+/* Customize the horizontal scrollbar */
+.container::-webkit-scrollbar {
+    height: 15px; /* Adjust the height of the scrollbar */
+    background-color: #c7c4c4; /* Light background color for the scrollbar track */
+}
+
+/* Scrollbar thumb (the draggable part) */
+.container::-webkit-scrollbar-thumb {
+    background-color: rgb(247, 241, 251); /* Grey color for the scrollbar thumb */
+}
+
+/* Scrollbar track (the background behind the thumb) */
+.container::-webkit-scrollbar-track {
+    background-color: #f3f0f0; /* Light grey for the track */
+    border-radius: 5px; /* Rounded corners for the track */
+}
