@@ -6,8 +6,9 @@ import FeaturedOn from './featured/page';
 import BankOnYourTerms from './gotIt/page';
 import DantownHappiness from './usingDantown/page';
 import StepsNow from './takeTheseSteps/page';
+import MetaHead from './components/metaHead';
 import Footer from './components/footer/page';
-import MetaHead from './components/metaHead/page'; // Import MetaHead component
+
 
 export const metadata = {
   title: "Trade Cryptocurrencies With Ease | Pay Bills With Crypto | Dantown",

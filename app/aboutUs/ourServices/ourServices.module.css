@@ -1,0 +1,78 @@
+/* General Styles */
+.servicesSection {
+    margin: 5% 7%;
+  }
+  
+  .services {
+    font-family: 'Arial', sans-serif;
+    color: #007bff;
+    font-size: 2.7rem;
+    font-weight: bold;
+    margin-bottom: 5%;
+    text-align: left;
+    transition: transform 2s ease, opacity 1s ease;
+  }
+  
+  .hidden {
+    opacity: 0;
+    transform: translateY(-30px); /* Initial position for animations */
+  }
+  
+  .animate {
+    opacity: 1;
+    transform: translateY(0); /* Final position */
+  }
+  
+  .blockDisplay {
+    display: block;
+  }
+  
+  /* Naira Wallet Section */
+  .nairaWalletSection {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2%;
+    margin-left: 5%;
+    transition: transform 2s ease, opacity 1s ease;
+  }
+  
+  .nairaWalletSection.hidden {
+    opacity: 0;
+    transform: translateX(-30px); /* Slide in from left */
+  }
+  
+  .nairaWalletSection.animate {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+.naira{
+    display: block;
+}
+
+  /* Crypto Wallet Section */
+  .cryptoWalletSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    margin-left: 55%;
+    transition: transform 2s ease, opacity 1s ease;
+  }
+  
+  .cryptoWalletSection.hidden {
+    opacity: 0;
+    transform: translateX(30px); /* Slide in from right */
+  }
+  
+  .cryptoWalletSection.animate {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  /* Central Text */
+  .centralText {
+    text-align: center;
+    margin-top: 20px;
+  }
+  

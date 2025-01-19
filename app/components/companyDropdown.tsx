@@ -50,10 +50,10 @@ const CompanyDropdown: FC<DropdownProps> = ({ isOpen, toggleDropdown, closeDropd
             <Link href="/aboutUs">About Us</Link>
           </li>
           <li onClick={closeDropdown}>
-            <Link href="/services">Services</Link>
+            <Link href="aboutUs/ourServices">Services</Link>
           </li>
           <li onClick={closeDropdown}>
-            <Link href="/team">Our Team</Link>
+            <Link href="aboutUs/ourTeam">Our Team</Link>
           </li>
         </ul>
       )}

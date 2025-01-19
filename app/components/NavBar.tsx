@@ -43,7 +43,7 @@ const Navbar = () => {
             />
           </li>
           <li>
-            <Link href="/airtime">Our Blog</Link>
+            <Link href="/ourBlog">Our Blog</Link>
           </li>
           <li>
             <Link href="/virtual-card">Become an Ambassador</Link>

@@ -1,44 +1,73 @@
 .container {
-    height: 100vh;
-    width: 100vw;
-    background: linear-gradient(135deg, #d0eaff, #f7f7f7); /* Light sky blue and very light grey gradient */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    box-sizing: border-box;
-  }
-  
-  .content {
-    max-width: 800px;
-    text-align: left;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  .headingWrapper {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .circle {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #87cefa, #d0eaff); /* Light sky blue gradient */
-    margin-right: 15px;
-  }
-  
-  .heading {
-    color: #007bff; /* Blue color */
-    font-size: 2rem;
-    font-weight: bold;
-  }
-  
-  .description p {
-    color: #333;
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 15px;
-  }
-  
+  min-height: 100vh; /* Full viewport height */
+  width: 100%; /* Full width of the parent container */
+  background: linear-gradient(135deg, rgba(208, 234, 255, 0.6), rgba(247, 247, 247, 0.8)); /* Increased opacity for more visibility */
+  display: flex;
+  flex-direction: column; /* Stack child elements vertically */
+  align-items: center; /* Center align content horizontally */
+  justify-content: flex-start; /* Start alignment from the top */
+  margin: 0; /* Remove margin */
+  padding: 0 5%;
+  margin-top: 10%;
+  margin-bottom: 0; /* Remove bottom margin */
+}
+
+.content {
+  width: 100%; /* Ensure it spans the full width of the parent container */
+  max-width: 1200px; /* Set a maximum width for better readability */
+  text-align: left; /* Align text to the left */
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.headingWrapper {
+  margin: 0 auto; /* Center the circle wrapper horizontally */
+  margin-top: -10%; /* Adjust to ensure it doesn’t overlap */
+  display: flex;
+  justify-content: center;
+}
+
+.circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: linear-gradient(-45deg, rgba(135, 206, 250, 0.9), rgba(208, 234, 255, 0.10)); /* Adjusted gradient direction */
+  display: flex; /* Use flexbox for potential child alignment */
+  justify-content: center; /* Center content horizontally (if any) */
+  align-items: center; /* Center content vertically (if any) */
+  box-shadow: 0px 12px 25px rgba(135, 206, 250, 0.5); /* Shadow matches circle background color */
+  border: 3px solid rgba(208, 234, 255, 0.8); /* Slightly less faint border */
+  position: relative; /* Enable precise positioning */
+  margin-top: -9%; /* Adjust upward movement */
+}
+
+.aboutHeading {
+  font-family: 'Arial', sans-serif; 
+  font-size: 2.7rem; 
+  font-weight: bold;
+  color: #007bff; 
+  margin-left: 5%;
+  margin-top: 10%;
+}
+
+.dantownHighlight {
+  display: block;
+  margin-bottom: 1.5%;
+}
+
+.description {
+  color: black; /* Darker gray for better readability */
+  font-size: 1rem; /* Slightly larger paragraph text */
+  line-height: 1.6; /* Improve readability with line spacing */
+  font-weight: bold;
+  margin-left: 5%;
+  margin-top: 2%;
+  margin-bottom: 0; /* Remove bottom space */
+}
+
+.firstP, .secondP, .thirdP {
+  margin-bottom: 0; /* Remove the space below each paragraph */
+}
+
+
+
