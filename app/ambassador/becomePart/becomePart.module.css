@@ -1,0 +1,63 @@
+/* Container styling */
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap; /* Responsive layout support */
+    gap: 20px; /* Space between left and right sides */
+    padding: 20px;
+    margin-top: 10%;
+    margin-bottom: 10%;
+  }
+  
+  /* Left side styling */
+  .leftSide {
+    flex: 1; /* Occupy equal space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 50%; /* Limit to 50% of the container */
+  }
+  
+  /* Right side styling */
+  .rightSide {
+    flex: 1; /* Occupy equal space */
+    max-width: 50%; /* Limit to 50% of the container */
+  }
+  
+  /* Heading style */
+  .heading {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* Paragraph style */
+  .paragraph {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: #333; /* Dark grey text */
+    margin-bottom: 15px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column; /* Stack items vertically on smaller screens */
+      align-items: center;
+    }
+  
+    .leftSide, .rightSide {
+      max-width: 100%; /* Full width on smaller screens */
+      text-align: center; /* Center text alignment */
+    }
+  
+    .heading {
+      font-size: 2rem; /* Adjust heading size */
+    }
+  
+    .paragraph {
+      font-size: 0.9rem; /* Adjust paragraph size */
+    }
+  }
+  

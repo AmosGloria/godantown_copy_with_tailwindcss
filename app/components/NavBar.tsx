@@ -46,7 +46,7 @@ const Navbar = () => {
             <Link href="/ourBlog">Our Blog</Link>
           </li>
           <li>
-            <Link href="/virtual-card">Become an Ambassador</Link>
+            <Link href="/ambassador">Become an Ambassador</Link>
           </li>
         </ul>
         <div className={styles.downloadButtonContainer}>
