@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import styles from './OurTeam.module.css'; // Ensure to create and import this CSS module
+import styles from './ourTeam.module.css'; // Ensure to create and import this CSS module
 
 const OurTeam = () => {
   const teamMembers = [

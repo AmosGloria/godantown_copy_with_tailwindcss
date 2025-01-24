@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./AboutDantown.module.css";
+import styles from "./aboutDantown.module.css";
 import WhyChooseDantown from "../whyChooseDantown/page";
 import OurServices from "../ourServices/page";
 import OurTeam from "../ourTeam/page";
