@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import styles from "./Crypto.module.css";
+import styles from "./crypto.module.css";
 import Link from "next/link";
 
 export default function CryptoPage() {

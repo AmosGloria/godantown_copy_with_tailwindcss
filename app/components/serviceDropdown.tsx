@@ -3,7 +3,7 @@
 import { FC, useEffect, useRef } from "react"; // Import useEffect and useRef for handling outside clicks
 import { AiFillCaretDown } from "react-icons/ai";
 import Link from "next/link";
-import styles from "./serviceDropdown.module.css";
+import styles from "./serviceDropDown.module.css";
 
 interface DropdownProps {
   isOpen: boolean;

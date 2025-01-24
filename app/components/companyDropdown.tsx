@@ -3,7 +3,7 @@
 import { FC, useEffect, useRef } from "react";
 import { AiFillCaretDown } from "react-icons/ai";
 import Link from "next/link";
-import styles from "./companyDropdown.module.css";
+import styles from "./companyDropDown.module.css";
 
 // Define the props interface
 interface DropdownProps {

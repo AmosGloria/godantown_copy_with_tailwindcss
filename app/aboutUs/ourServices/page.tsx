@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import React, { useRef, useEffect } from 'react';
-import styles from './OurServices.module.css';
+import styles from './ourServices.module.css';
 
 const OurServices = () => {
   const servicesRef = useRef<HTMLDivElement>(null);
