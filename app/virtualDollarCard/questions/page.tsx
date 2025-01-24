@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import styles from './Questions.module.css';
+import styles from './questions.module.css';
 
 const Faq = () => {
   return (

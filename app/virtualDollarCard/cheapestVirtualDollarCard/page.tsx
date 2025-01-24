@@ -2,7 +2,7 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import styles from "./CheapestVirtualDollarCard.module.css";
+import styles from "./cheapestVirtualDollarCard.module.css";
 
 export default function CheapestVirtualDollarCard() {
   const imageRef = useRef<HTMLDivElement>(null);

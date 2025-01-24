@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import styles from "./Featured.module.css";
+import styles from "./featured.module.css";
 
 const FeaturedOn = () => {
   const [isVisible, setIsVisible] = useState(false);

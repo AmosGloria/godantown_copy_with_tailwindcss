@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import styles from "./CryptoOptions.module.css"; // Ensure this path is correct
+import styles from "./cryptoOptions.module.css"; // Ensure this path is correct
 
 export default function CryptoOptions() {
   return (
