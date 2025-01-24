@@ -12,7 +12,7 @@
     "@next/bundle-analyzer": "^15.1.2",
     "@next/font": "^14.2.15",
     "mini-css-extract-plugin": "^2.9.2",
-    "next": "^15.1.4",
+    "next": "^15.1.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-helmet": "^6.1.0",
