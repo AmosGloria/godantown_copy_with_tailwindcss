@@ -5,7 +5,7 @@ import { useRouter, usePathname } from "next/navigation";
 import Typed from "typed.js";
 import Image from "next/image";
 import LoadingSkeleton from "../components/LoadingSkeleton/LoadingSkeleton"; // Import reusable LoadingSkeleton
-import styles from "./ServiceCards.module.css"; // Import styles for ServiceCards
+import styles from "./serviceCards.module.css"; // Import styles for ServiceCards
 
 export default function ServiceCards() {
   const [isLoading, setIsLoading] = useState(false); // Manage loading state

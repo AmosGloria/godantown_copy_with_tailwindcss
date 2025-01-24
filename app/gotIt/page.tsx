@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import styles from './GotIt.module.css';
+import styles from './gotIt.module.css';
 
 const BankOnYourTerms = () => {
   const [isAnimated, setIsAnimated] = useState(false);

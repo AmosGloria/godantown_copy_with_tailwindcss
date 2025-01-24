@@ -1,7 +1,7 @@
 "use client"; // Required for client-side logic in Next.js 15
 import { useEffect, useRef } from "react";
 import Image from "next/image";
-import styles from "./BestVirtualCard.module.css";
+import styles from "./bestVirtualCard.module.css";
 
 export default function BestVirtualCard() {
   const containerRef = useRef<HTMLDivElement>(null);
