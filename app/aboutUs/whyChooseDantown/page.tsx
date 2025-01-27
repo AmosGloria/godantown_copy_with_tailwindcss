@@ -1,6 +1,6 @@
 // components/WhyChooseDantown.tsx
 import Image from 'next/image';
-import styles from './WhyChooseDantown.module.css'; // Ensure you create and import your CSS module
+import styles from './whyChooseDantown.module.css'; // Ensure you create and import your CSS module
 
 const WhyChooseDantown = () => {
   return (

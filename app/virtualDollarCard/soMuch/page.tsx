@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
-import styles from "./SoMuch.module.css";
+import styles from "./soMuch.module.css";
 
 export default function SoMuchEase() {
   const imageRef = useRef<HTMLDivElement>(null);

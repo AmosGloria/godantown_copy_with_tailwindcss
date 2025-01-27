@@ -10,7 +10,6 @@ export default function AboutUs() {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        {/* About Dantown Section */}
         <div className={styles.aboutDantownSection}>
           <h1 className={styles.aboutHeading}>
             About <span className={styles.dantownHighlight}>Dantown</span>

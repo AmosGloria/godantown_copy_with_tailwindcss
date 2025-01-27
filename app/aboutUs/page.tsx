@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from '../components/NavBar'; 
-import styles from './AboutUs.module.css';
+import styles from './aboutUs.module.css';
 import AboutDantown from './aboutDantown/page';
 import Footer from "@/app/components/footer/page";
 

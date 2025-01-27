@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import styles from './Shopping.module.css';
+import styles from './shopping.module.css';
 
 const Shopping = () => {
   return (
