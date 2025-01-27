@@ -8,7 +8,7 @@ import StressFreeSide from "./stressFreeSide/page";
 import SoMuchEase from "./soMuch/page";
 import Shopping from "./shopping/page";
 import Faq from "./questions/page";
-import styles from "./VirtualDollarCard.module.css";
+import styles from "./virtualDollarCard.module.css";
 
 // Metadata override for this page
 export const metadata = {
