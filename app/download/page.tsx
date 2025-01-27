@@ -1,7 +1,7 @@
 
 import React from "react";
 import Image from "next/image";
-import styles from "./DownloadPage.module.css"; 
+import styles from "./downloadPage.module.css"; 
 import Link from 'next/link';
 
 

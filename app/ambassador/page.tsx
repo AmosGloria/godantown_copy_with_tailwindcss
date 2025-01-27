@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from './Ambassador.module.css';
+import styles from './ambassador.module.css';
 import BecomePart from './becomePart/page';
 import WhoAreWeLookingFor from './keyTraits/page';
 import WhatDoYouStandToGain from './whatYouStandToGain/page';

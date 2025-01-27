@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import styles from './BecomePart.module.css';
+import styles from './becomePart.module.css';
 
 
 export default function BecomePart() {

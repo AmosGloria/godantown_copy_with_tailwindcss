@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './MissOut.module.css';
+import styles from './missOut.module.css';
 
 export default function MissOut() {
   return (

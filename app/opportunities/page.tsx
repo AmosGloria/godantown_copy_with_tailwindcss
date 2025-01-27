@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Opportunities.module.css";
+import styles from "./opportunities.module.css";
 import Image from "next/image";
 
 export default function VirtualCardFeature() {
