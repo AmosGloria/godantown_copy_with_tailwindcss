@@ -52,7 +52,11 @@ export default function BlogPage() {
         }
 
         const data = await res.json();
-        setPosts(data.data || []);
+        if (Array.isArray(data.data)) {
+          setPosts(data.data);
+        } else {
+          throw new Error("Unexpected API response format.");
+        }
       } catch (error) {
         const typedError = error as Error;
         console.error("Error fetching blog posts:", typedError.message);
@@ -152,9 +156,9 @@ export default function BlogPage() {
           <div className="text-center text-red-600 font-semibold">{error}</div>
         ) : displayedPosts.length > 0 ? (
           <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {displayedPosts.map((post: BlogPost, index: number) => (
+            {displayedPosts.map((post, index) => (
               <li
-                key={index}
+                key={post.slug || index}
                 className="bg-white shadow-md p-5 rounded-lg hover:shadow-lg transition"
               >
                 <Link
