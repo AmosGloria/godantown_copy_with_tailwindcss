@@ -3,49 +3,40 @@
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import styles from "./usingDantown.module.css";
 
 const DantownHappiness = () => {
   const [isAnimated, setIsAnimated] = useState(false);
-  const leftSectionRef = useRef(null);
-  const rightSectionRef = useRef(null);
+  const sectionRef = useRef<HTMLDivElement | null>(null); // Use only one ref
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsAnimated(true); // Trigger animation
-        } else {
-          setIsAnimated(false); // Reset animation
+          setIsAnimated(true);
+          observer.disconnect(); // Stop observing after it animates
         }
       },
-      { threshold: 0.5 } // Trigger when 50% of the section is visible
+      { threshold: 0.5 }
     );
 
-    const leftCurrent = leftSectionRef.current;
-    const rightCurrent = rightSectionRef.current;
-
-    if (leftCurrent && rightCurrent) {
-      observer.observe(leftCurrent);
-      observer.observe(rightCurrent);
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
     }
 
-    return () => {
-      if (leftCurrent && rightCurrent) {
-        observer.unobserve(leftCurrent);
-        observer.unobserve(rightCurrent);
-      }
-    };
+    return () => observer.disconnect(); // Cleanup observer when unmounting
   }, []);
 
   return (
-    <div className={styles.container}>
-      <div
-        ref={leftSectionRef}
-        className={`${styles.leftSection} ${isAnimated ? styles.animate : ""}`}
-      >
+    <div
+      ref={sectionRef}
+      className={`flex flex-col md:flex-row justify-between items-center px-6 md:px-12 mx-auto w-full max-w-[1200px] ${
+        isAnimated ? "animate-fadeIn" : "opacity-0"
+      }`}
+    >
+      {/* Left Section */}
+      <div className="w-full md:w-1/2">
         <Image
-          className={styles.usingDantownImage}
+          className="w-full max-w-[600px] h-auto"
           src="/usingDantown.png"
           alt="Using Dantown"
           width={600}
@@ -53,28 +44,21 @@ const DantownHappiness = () => {
         />
       </div>
 
-      <div
-        ref={rightSectionRef}
-        className={`${styles.rightSection} ${isAnimated ? styles.animate : ""}`}
-      >
-        <h1>
-          Become happy using <span className={styles.dantownLineh}>Dantown</span>
+      {/* Right Section */}
+      <div className="w-full md:w-1/2 flex flex-col text-left">
+        <h1 className="text-2xl md:text-3xl font-bold mb-5">
+          Become happy using <span className="block font-bold">Dantown</span>
         </h1>
-        <p>
+        <p className="text-gray-700 text-base mb-6">
           All your utility payments in one place with excellent{" "}
-          <span className={styles.dantownLinep}>
-            customer service to attend to your issues, 24/7.
-          </span>
+          <span className="block">customer service 24/7.</span>
         </p>
 
-        <div className={styles.downloadButtons}>
-          <Link
-            href="https://apps.apple.com/ng/app/dantown/id1575600937#?platform=iphone"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+        {/* Download Buttons */}
+        <div className="flex gap-3 mt-4">
+          <Link href="https://apps.apple.com/ng/app/dantown/id1575600937">
             <Image
-              className={styles.appStoreImage}
+              className="cursor-pointer"
               src="/appStoreDownload.png"
               alt="Download on the App Store"
               width={200}
@@ -82,13 +66,9 @@ const DantownHappiness = () => {
             />
           </Link>
 
-          <Link
-            href="https://play.google.com/store/apps/details?id=com.dantown.Dantownapp"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <Link href="https://play.google.com/store/apps/details?id=com.dantown.Dantownapp">
             <Image
-              className={styles.googlePlayImage}
+              className="cursor-pointer"
               src="/googlePlayDownload.png"
               alt="Download on Google Play"
               width={200}

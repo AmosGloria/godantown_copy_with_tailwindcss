@@ -1,7 +1,7 @@
-"use client"; // Required for client-side logic in Next.js 15
+"use client";
+
 import { useEffect, useRef } from "react";
 import Image from "next/image";
-import styles from "./bestVirtualCard.module.css";
 
 export default function BestVirtualCard() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -11,9 +11,9 @@ export default function BestVirtualCard() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add(styles.visible);
+            entry.target.classList.add("animate-slideUp");
           } else {
-            entry.target.classList.remove(styles.visible);
+            entry.target.classList.remove("animate-slideUp");
           }
         });
       },
@@ -22,7 +22,7 @@ export default function BestVirtualCard() {
       }
     );
 
-    const elements = containerRef.current?.querySelectorAll(`.${styles.card}`);
+    const elements = containerRef.current?.querySelectorAll(".card");
     elements?.forEach((element) => observer.observe(element));
 
     return () => {
@@ -31,13 +31,14 @@ export default function BestVirtualCard() {
   }, []);
 
   return (
-    <div className={styles.container} ref={containerRef}>
+    <div className="mx-[10%] flex flex-col items-center justify-center max-w-[80%] min-h-screen" ref={containerRef}>
       {/* Header Section */}
-      <header className={styles.header}>
-        <h1 className={styles.title}>
-          Dantown: The Best Virtual <span className={styles.pageHead}>Dollar Card in Nigeria</span>
+      <header className="text-center mb-8">
+        <h1 className="text-[2.5rem] font-bold leading-[1.2] mb-2">
+          Dantown: The Best Virtual{" "}
+          <span className="block">Dollar Card in Nigeria</span>
         </h1>
-        <p className={styles.description}>
+        <p className="text-[1.4rem] text-[#7c8080] leading-[1.8]">
           Our cards give you the freedom to spend your money locally and internationally without
           hassle. You can now shop and settle bill payments & subscriptions on Netflix, Spotify,
           Meta, YouTube Premium, Ali Express, Shein, Hulu, Google, Udemy, Coursera, etc. with ease!
@@ -45,82 +46,57 @@ export default function BestVirtualCard() {
       </header>
 
       {/* Cards Section */}
-      <div className={styles.cardsContainer}>
-        <div className={`${styles.card} ${styles.card1}`}>
-          <div className={styles.cardImageWrapper}>
-            <Image
-              src="/supportsHighValue.png"
-              alt="Supports High Value Payments"
-              width={60}
-              height={60}
-              className={styles.cardImage}
-            />
+      <div className="flex flex-wrap gap-6 justify-between items-center w-[78%]">
+        {[
+          {
+            img: "/supportsHighValue.png",
+            title: "Supports high value payments",
+            description:
+              "Your spending should have no limit. Our dollar virtual card gives you that freedom you deserve.",
+          },
+          {
+            img: "/reliableAccess.png",
+            title: "Reliable access to the international market",
+            description: "Zero card rejection on any platform. Spend globally effortlessly.",
+          },
+          {
+            img: "/makeFasterOnlinePayment.png",
+            title: "Make faster online payments with ease",
+            description:
+              "Speedy processing of online payments now possible with our virtual dollar cards.",
+          },
+          {
+            img: "/securedAndTransparent.png",
+            title: "Secured and transparent International payments",
+            description: "Safety and security guaranteed. Spend with confidence, every time.",
+          },
+          {
+            img: "/makeAndManageSubscriptions.png",
+            title: "Make and manage all your subscriptions in one place.",
+            description:
+              "No payment failure. Enjoy uninterrupted subscription services with your Dantown virtual dollar card.",
+          },
+        ].map((card, index) => (
+          <div
+            key={index}
+            className={`card relative w-[24rem] min-h-[22rem] bg-white p-8 flex flex-col justify-center items-start gap-4 shadow-md transition-all duration-300 group hover:bg-blue-50 ${
+              index % 2 !== 0 ? "mt-36" : index === 3 ? "mt-44" : "mt-0"
+            }`}
+          >
+            {/* Image Wrapper */}
+            <div className="relative flex justify-center items-center w-[70px] h-[70px] rounded-full overflow-hidden transition-all duration-300">
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500 to-black transition-all duration-300 group-hover:bg-white"></div>
+              <div className="absolute inset-0 rounded-full bg-white p-[3px]"></div>
+              <Image src={card.img} alt={card.title} width={60} height={60} className="relative w-[70%] h-[70%]" />
+            </div>
+            <h2 className="text-[1.2rem] font-bold text-black group-hover:text-gray-900 transition-all duration-300">
+              {card.title}
+            </h2>
+            <p className="text-[1.1rem] text-[#4b5563] leading-[1.8] text-left group-hover:text-gray-800 transition-all duration-300">
+              {card.description}
+            </p>
           </div>
-          <h2 className={styles.cardTitle}>Supports high value payments</h2>
-          <p className={styles.cardDescription}>
-            Your spending should have no limit. Our dollar virtual card gives you that freedom you deserve.
-          </p>
-        </div>
-        <div className={`${styles.card} ${styles.card2}`}>
-          <div className={styles.cardImageWrapper}>
-            <Image
-              src="/reliableAccess.png"
-              alt="Reliable access"
-              width={60}
-              height={60}
-              className={styles.cardImage}
-            />
-          </div>
-          <h2 className={styles.cardTitle}>Reliable access to the international market</h2>
-          <p className={styles.cardDescription}>
-            Zero card rejection on any platform. Spend globally effortlessly.
-          </p>
-        </div>
-        <div className={`${styles.card} ${styles.card3}`}>
-          <div className={styles.cardImageWrapper}>
-            <Image
-              src="/makeFasterOnlinePayment.png"
-              alt="Make faster online payments"
-              width={60}
-              height={60}
-              className={styles.cardImage}
-            />
-          </div>
-          <h2 className={styles.cardTitle}>Make faster online payments with ease</h2>
-          <p className={styles.cardDescription}>
-            Speedy processing of online payments now possible with our virtual dollar cards.
-          </p>
-        </div>
-        <div className={`${styles.card} ${styles.card4}`}>
-          <div className={styles.cardImageWrapper}>
-            <Image
-              src="/securedAndTransparent.png"
-              alt="Secured and Transparent"
-              width={60}
-              height={60}
-              className={styles.cardImage}
-            />
-          </div>
-          <h2 className={styles.cardTitle}>Secured and transparent International payments</h2>
-          <p className={styles.cardDescription}>
-            Safety and security guaranteed. Spend with confidence, every time.
-          </p>
-        </div>
-        <div className={`${styles.card} ${styles.card5}`}>
-          <div className={styles.cardImageWrapper}>
-            <Image
-              src="/makeAndManageSubscriptions.png"
-              alt="Make and Manage Subscriptions"
-              width={60}
-              height={60}
-              className={styles.cardImage}
-            />
-          </div>
-          <h2 className={styles.cardTitle}>Make and manage all your subscriptions in one place.</h2>
-          <p className={styles.cardDescription}>
-            No payment failure. Enjoy uninterrupted subscription services with your Dantown virtual dollar card.
-          </p>
-        </div>
+        ))}
       </div>
     </div>
   );

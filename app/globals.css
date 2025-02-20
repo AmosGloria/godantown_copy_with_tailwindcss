@@ -2,20 +2,76 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Ensure animations are fully applied */
+.animate {
+    @apply opacity-100 translate-y-0 translate-x-0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Slide In Animations */
+@layer utilities {
+    @keyframes slideInRight {
+        from {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes slideInLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    .animate-slideInRight {
+        @apply animate-[slideInRight_0.8s_ease-out_forwards];
+    }
+
+    .animate-slideInLeft {
+        @apply animate-[slideInLeft_0.8s_ease-out_forwards];
+    }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+/* Loading Animation */
+@layer utilities {
+    @keyframes pop {
+        0% {
+            transform: scale(0.5);
+            opacity: 0;
+        }
+        50% {
+            transform: scale(1.5);
+            opacity: 1;
+        }
+        100% {
+            transform: scale(0.5);
+            opacity: 0;
+        }
+    }
+
+    .animate-pop {
+        @apply animate-[pop_1.5s_infinite_ease-in-out];
+    }
+}
+
+/* Loading Skeleton Circle */
+@layer components {
+    .loading-circle {
+        @apply w-[var(--circle-size,60px)] h-[var(--circle-size,60px)] bg-[var(--circle-color,navy)] rounded-full animate-[pop_var(--animation-duration,1.5s)_infinite_ease-in-out];
+    }
+}
+
+/* Clip-horizontal-cut to cut the bottom half of the circle slightly below the service cards */
+@layer utilities {
+    .clip-horizontal-cut {
+        clip-path: inset(0 0 25% 0); /* Cut the bottom by 45% */
+    }
 }

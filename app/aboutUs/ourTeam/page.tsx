@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import styles from './ourTeam.module.css'; // Ensure to create and import this CSS module
 
 const OurTeam = () => {
   const teamMembers = [
@@ -36,24 +35,26 @@ const OurTeam = () => {
   ];
 
   return (
-    <div className={styles.teamSection}>
-      <h1 className={styles.teamHeading}>
-        <span className={styles.block}>Our</span>
-        <span className={styles.block}>Team</span>
+    <div className="p-8 text-left">
+      <h1 className="text-6xl font-bold text-blue-500 mb-8">
+        <span className="block">Our</span>
+        <span className="block mt-4">Team</span>
       </h1>
 
-      <div className={styles.teamGrid}>
+      <div className="grid grid-cols-3 gap-x-0 gap-y-2 justify-items-center">
         {teamMembers.map((member, index) => (
-          <div key={index} className={styles.teamMember}>
+          <div key={index} className="flex flex-col items-center text-center bg-transparent shadow-none">
             <Image
               src={member.image}
               alt={member.name}
-              width={600} // Increased width
-              height={600} // Increased height
-              className={styles.teamImage}
+              width={350}
+              height={350}
+              className="rounded-full w-[350px] h-[350px]"
             />
-            <div className={styles.memberName3D}>{member.name}</div>
-            <p className={styles.memberTitle}>{member.title}</p>
+            <div className="text-lg font-bold text-gray-900 mt-2 text-shadow transform perspective-[500px] rotate-x-[10deg]">
+              {member.name}
+            </div>
+            <p className="text-base text-gray-600 mt-1">{member.title}</p>
           </div>
         ))}
       </div>

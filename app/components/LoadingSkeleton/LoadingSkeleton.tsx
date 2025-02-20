@@ -1,13 +1,12 @@
 "use client";
 
 import React from "react";
-import styles from "./LoadingSkeleton.module.css";
 
 interface LoadingSkeletonProps {
-  duration?: number; // Optional duration for the animation
-  size?: number; // Optional size for the circle
-  color?: string; // Optional color for the circle
-  backgroundColor?: string; // Optional background color for the surface
+  duration?: number; // Optional animation duration
+  size?: number; // Optional circle size
+  color?: string; // Optional circle color
+  backgroundColor?: string; // Optional background color
 }
 
 const LoadingSkeleton: React.FC<LoadingSkeletonProps> = ({
@@ -18,17 +17,20 @@ const LoadingSkeleton: React.FC<LoadingSkeletonProps> = ({
 }) => {
   return (
     <div
-      className={styles.overlay}
-      style={
-        {
-          "--background-color": backgroundColor,
-          "--animation-duration": `${duration}s`,
-          "--circle-size": `${size}px`,
-          "--circle-color": color,
-        } as React.CSSProperties
-      }
+      className="fixed inset-0 flex items-center justify-center z-[9999]"
+      style={{
+        backgroundColor, // Dynamic background color for a plain empty space
+      }}
     >
-      <div className={styles.circle}></div>
+      <div
+        className="rounded-full animate-pulse"
+        style={{
+          width: size,
+          height: size,
+          backgroundColor: color, // Dynamic circle color
+          animationDuration: `${duration}s`,
+        }}
+      ></div>
     </div>
   );
 };

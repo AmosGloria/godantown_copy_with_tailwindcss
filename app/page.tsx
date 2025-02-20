@@ -10,6 +10,8 @@ import MetaHead from './components/metaHead';
 import Footer from './components/footer/page';
 
 
+
+
 export const metadata = {
   title: "Trade Cryptocurrencies With Ease | Pay Bills With Crypto | Dantown",
   description: "Experience seamless cryptocurrency trading and bill payments with Dantown. Secure, fast, and reliable solutions tailored to your needs.",

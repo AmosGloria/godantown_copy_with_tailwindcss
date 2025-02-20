@@ -1,28 +1,36 @@
 import Image from 'next/image';
-import styles from './becomePart.module.css';
-
 
 export default function BecomePart() {
   return (
-    <div className={styles.container}>
-      {/* Left Side */}
-      <div className={styles.leftSide}>
-        <Image src="/becomePart.png" alt="Become Part" width={350} height={350} />
+    <div className="flex flex-row justify-between items-center gap-8 px-4 sm:px-6 md:px-10 lg:px-20 mt-10 mb-14 w-full min-w-0 overflow-hidden">
+      {/* Left Side - Image */}
+      <div className="flex flex-1 justify-center items-center w-1/2 lg:w-2/5 min-w-0">
+        <div className="relative w-full max-w-[400px] h-auto">
+          <Image 
+            src="/becomePart.png" 
+            alt="Become Part" 
+            width={350} 
+            height={350} 
+            className="w-full h-auto rounded-lg"
+          />
+        </div>
       </div>
 
-      {/* Right Side */}
-      <div className={styles.rightSide}>
-        <h1 className={styles.heading}>Become Part Of Us</h1>
-        <p className={styles.paragraph}>
+      {/* Right Side - Text Content */}
+      <div className="flex flex-1 flex-col w-1/2 lg:w-3/5 min-w-0">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-5 text-left">
+          Become Part Of Us
+        </h1>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-800 mb-4 text-left">
           Are you an enthusiastic young student in the university yearning to be thrown into the deep end of a fast-moving, dynamic, and social work environment?
         </p>
-        <p className={styles.paragraph}>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-800 mb-4 text-left">
           Are you looking for an opportunity to turn your influence to impact and income?
         </p>
-        <p className={styles.paragraph}>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-800 mb-4 text-left">
           Are you intentional about building professional credibility through building your work experience with a fast-growing tech company?
         </p>
-        <p className={styles.paragraph}>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-800 text-left">
           If this is you, then this opportunity is for you.
         </p>
       </div>

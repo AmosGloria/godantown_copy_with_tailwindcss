@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from './ambassador.module.css';
 import BecomePart from './becomePart/page';
 import WhoAreWeLookingFor from './keyTraits/page';
 import WhatDoYouStandToGain from './whatYouStandToGain/page';
@@ -12,40 +11,59 @@ export default function AmbassadorPage() {
   return (
     <div>
       <Navbar />
-      <div className={styles.container}>
+      
+      {/* Main Container */}
+      <div className="flex flex-wrap justify-between items-start px-[6%] py-[3%] gap-2 lg:gap-7">
+        
         {/* Left Side */}
-        <div className={styles.leftSide}>
-          <h1 className={styles.heading}>
-            Welcome to Dantown&apos;s Campus<span className={styles.highlight}> Ambassador</span> Program
+        <div className="flex-1 max-w-[68%] mt-8">
+          <h1 className="text-[3.5rem] font-bold font-sans mb-5">
+            Welcome to Dantown&apos;s Campus
+            <span className="text-navy"> Ambassador</span> Program
           </h1>
-          <p className={styles.paragraph}>
+          <p className="text-base leading-7 mb-5 text-gray-800">
             Leverage your reach and influence on your campus to earn passive
-            <span className={styles.secondPart}>
-            income for life and win cool monthly prizes.
+            <span className="block">
+              income for life and win cool monthly prizes.
             </span>
           </p>
-          <Link
-            href="https://docs.google.com/forms/d/e/1FAIpQLSelIxU_41SleXbwEqRx8sJCnvRNiyhwhh1ansirNR6phvBFpA/viewform"
-          >
-            <button className={styles.applyButton}>
+          
+          {/* Apply Button */}
+          <Link href="https://docs.google.com/forms/d/e/1FAIpQLSelIxU_41SleXbwEqRx8sJCnvRNiyhwhh1ansirNR6phvBFpA/viewform">
+            <button className="bg-cyan-400 text-white border-none px-6 py-3 rounded-md text-base mt-5 transition-all duration-300 hover:bg-cyan-600 hover:scale-105">
               Apply Here <span>&#8594;</span>
             </button>
           </Link>
-          <div className={styles.hara}>
+
+          {/* Hara Image */}
+          <div className="mt-5 grayscale">
             <Image src="/hara.png" alt="hara" width={180} height={80} />
           </div>
         </div>
 
         {/* Right Side */}
-        <div className={styles.rightSide}>
-          <Image src="/campusGadgets.png" alt="Campus Gadgets" width={600} height={400}  className={styles.firstImage}/>
-          <Image src="/campusAmbassador.png" alt="Campus Ambassador" width={600} height={400} />
+        <div className="flex-1 flex flex-col items-end gap-1 max-w-[32%] -mt-6 -mr-1">
+          <Image 
+            src="/campusGadgets.png" 
+            alt="Campus Gadgets" 
+            width={600} 
+            height={400}  
+            className="-mr-10 w-[600px] h-[350px]"
+          />
+          <Image 
+            src="/campusAmbassador.png" 
+            alt="Campus Ambassador" 
+            width={600} 
+            height={400} 
+            className="w-[600px] h-auto"
+          />
         </div>
       </div>
-      <BecomePart/>
-      <WhoAreWeLookingFor/>
-      <WhatDoYouStandToGain/>
-      <MissOut/>
+
+      <BecomePart />
+      <WhoAreWeLookingFor />
+      <WhatDoYouStandToGain />
+      <MissOut />
       <Footer />
     </div>
   );

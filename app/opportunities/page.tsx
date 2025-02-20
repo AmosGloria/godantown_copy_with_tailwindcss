@@ -1,22 +1,25 @@
 import React from "react";
-import styles from "./opportunities.module.css";
 import Image from "next/image";
 
 export default function VirtualCardFeature() {
     return (
-        <div className={styles.container}>
-            <div className={styles.content}>
-                <h1>Endless Possibilities <span className={styles.line}>with our Virtual Card </span>feature</h1>
-                <p>Now you can shop online and pay for <span className={styles.line}>your subscription services with ease.</span></p>
+        <div className="flex justify-between items-center font-sans h-screen overflow-hidden mx-[6%] px-[3%] mt-[2%]">
+            <div className="w-1/2 p-5 text-left">
+                <h1 className="text-2xl text-black mt-[10%] mb-5 font-impact">
+                    Endless Possibilities <span className="block">with our Virtual Card</span> feature
+                </h1>
+                <p className="text-base text-gray-600">
+                    Now you can shop online and pay for <span className="block">your subscription services with ease.</span>
+                </p>
             </div>
-            <div className={styles.imageContainer}>
-            <Image
-              src="/opportunities.png"
-              alt="Opportunities"
-              width={150}
-              height={50}
-              className={styles.image}
-            />
+            <div className="w-[400px] h-[400px]">
+                <Image
+                    src="/opportunities.png"
+                    alt="Opportunities"
+                    width={400}
+                    height={400}
+                    className="w-full h-full"
+                />
             </div>
         </div>
     );
