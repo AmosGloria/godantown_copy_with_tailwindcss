@@ -1,20 +1,17 @@
-import React from "react";
-import Head from "next/head";
-
 interface MetaHeadProps {
   title: string;
   description: string;
-  favicon?: string; // Add optional favicon property
+  favicon?: string; // Optional favicon
 }
 
-const MetaHead: React.FC<MetaHeadProps> = ({ title, description, favicon }) => {
-  return (
-    <Head>
-      <title>{title}</title>
-      <meta name="description" content={description} />
-      {favicon && <link rel="icon" href={favicon} />} {/* Add favicon link */}
-    </Head>
-  );
-};
+export function generateMetadata({ title, description, favicon }: MetaHeadProps) {
+  return {
+    title,
+    description,
+    icons: favicon ? [{ rel: "icon", url: favicon }] : undefined,
+  };
+}
 
-export default MetaHead;
+export default function Page({ title }: { title: string }) {
+  return <h1>Welcome to {title}</h1>;
+}

@@ -4,16 +4,6 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-// Metadata override for this page
-export const metadata = {
-  title: "Download Mobile App | Dantown",
-  description:
-    "Create a virtual dollar card for just $1 with zero funding fees. No transaction limits. Accepted everywhere, anytime, securely.",
-  icons: {
-    icon: "/godantownLogo.png", // Path to the logo in the public directory
-  },
-};
-
 export default function DownloadPage() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen px-6 py-10 bg-gradient-to-r from-teal-100 to-white text-center">

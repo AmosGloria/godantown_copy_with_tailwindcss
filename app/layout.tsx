@@ -1,7 +1,15 @@
-import './globals.css'; 
-import React from 'react'; // Import React to use React.ReactNode
+import "./globals.css";
+import React from "react";
 
-// Define the type for the props
+export const metadata = {
+  title: "Dantown - Secure Virtual Dollar Cards & Payments",
+  description:
+    "Create a virtual dollar card for just $1 with zero funding fees. No transaction limits. Accepted everywhere, anytime, securely.",
+  icons: {
+    icon: "/godantownLogo.png", // Path to the favicon/logo in the public directory
+  },
+};
+
 interface RootLayoutProps {
   children: React.ReactNode;
 }
