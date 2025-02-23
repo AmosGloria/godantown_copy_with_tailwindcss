@@ -115,7 +115,7 @@ export default function ServiceCards() {
       </div>
 
       {/* Gradient Circle - Adjusted for Width Increase */}
-      <div className="absolute top-[460px] right-[10%] transform -translate-x-16 -translate-y-48 w-[530px] h-[530px] rounded-full bg-gradient-to-r from-blue-100 via-white to-blue-200 opacity-95 z-[-1] clip-horizontal-cut"></div>
+      <div className="absolute top-[460px] right-[10%] transform -translate-x-14 -translate-y-44 w-[540px] h-[540px] rounded-full bg-gradient-to-r from-blue-100 via-white to-blue-200 opacity-95 z-[-1] clip-horizontal-cut"></div>
     </div>
   );
 }
