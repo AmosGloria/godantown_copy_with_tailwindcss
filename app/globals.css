@@ -72,6 +72,6 @@
 /* Clip-horizontal-cut to cut the bottom half of the circle slightly below the service cards */
 @layer utilities {
     .clip-horizontal-cut {
-        clip-path: inset(0 0 25% 0); /* Cut the bottom by 45% */
+        clip-path: inset(0 0 25% 0); /* Cut the bottom by 25% */
     }
 }
