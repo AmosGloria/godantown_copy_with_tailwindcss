@@ -95,10 +95,14 @@ export default function BlogPage() {
 
       <div className="relative h-screen bg-gradient-radial from-gray-100 to-white flex flex-col justify-start p-5 overflow-hidden">
         {/* Decorative Background Elements */}
-        <div className="absolute w-[350px] h-[350px] top-[-1%] left-[10%] rounded-full bg-cyan-50 shadow-lg"></div>
-        <div className="absolute w-[230px] h-[230px] top-[35%] left-[40%] rounded-full bg-blue-100 shadow-lg"></div>
-        <div className="absolute w-[150px] h-[150px] top-[12%] left-[59%] rounded-full bg-blue-100"></div>
-        <div className="absolute w-[350px] h-[350px] top-[20%] left-[65%] rounded-full bg-cyan-50 shadow-lg"></div>
+<div className="absolute w-[350px] h-[350px] top-[-1%] left-[10%] rounded-full bg-cyan-50 shadow-[0px_0px_80px_rgba(165,243,252,0.7)]"></div>
+
+<div className="absolute w-[230px] h-[230px] top-[35%] left-[40%] rounded-full bg-blue-100 shadow-[0px_0px_80px_rgba(191,219,254,0.7)]"></div>
+
+<div className="absolute w-[150px] h-[150px] top-[12%] left-[59%] rounded-full bg-blue-100 shadow-[0px_0px_80px_rgba(191,219,254,0.7)]"></div>
+
+<div className="absolute w-[350px] h-[350px] top-[20%] left-[65%] rounded-full bg-cyan-50 shadow-[0px_0px_80px_rgba(165,243,252,0.7)]"></div>
+
 
         {/* Blog Header */}
         <p className="text-lg font-bold text-gray-800 ml-[7%] mt-[11%] relative z-10">
