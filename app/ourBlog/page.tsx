@@ -6,6 +6,7 @@ import Navbar from "../components/NavBar";
 import LatestPosts from "./lastestPost";
 import Footer from "../components/footer/page";
 import { FaSearch } from "react-icons/fa"; // Import search icon
+import EverythingCryptoBlog from "./everythingCryptoBlog"; // Import Crypto Blog Component
 
 // Define the BlogPost type for TypeScript
 interface BlogPost {
@@ -83,6 +84,14 @@ export default function BlogPage() {
       ? posts
       : posts.filter((post) => post.category === selectedCategory);
 
+  // Get crypto posts
+  const cryptoPosts = posts.filter((post) => post.category === "everything-crypto");
+
+  // If Everything Crypto is selected, show its dedicated component
+  if (selectedCategory === "everything-crypto") {
+    return <EverythingCryptoBlog cryptoPosts={cryptoPosts} goBack={() => setSelectedCategory("all")} />;
+  }
+
   // Limit the displayed posts when "See Less" is clicked
   const displayedPosts = showAllPosts ? filteredPosts : filteredPosts.slice(0, 3);
 
@@ -95,14 +104,13 @@ export default function BlogPage() {
 
       <div className="relative h-screen bg-gradient-radial from-gray-100 to-white flex flex-col justify-start p-5 overflow-hidden">
         {/* Decorative Background Elements */}
-<div className="absolute w-[350px] h-[350px] top-[-1%] left-[10%] rounded-full bg-cyan-50 shadow-[0px_0px_80px_rgba(165,243,252,0.7)]"></div>
+        <div className="absolute w-[350px] h-[350px] top-[-1%] left-[10%] rounded-full bg-cyan-50 shadow-[0px_0px_80px_rgba(165,243,252,0.7)]"></div>
 
-<div className="absolute w-[230px] h-[230px] top-[35%] left-[40%] rounded-full bg-blue-100 shadow-[0px_0px_80px_rgba(191,219,254,0.7)]"></div>
+        <div className="absolute w-[230px] h-[230px] top-[35%] left-[40%] rounded-full bg-blue-100 shadow-[0px_0px_80px_rgba(191,219,254,0.7)]"></div>
 
-<div className="absolute w-[150px] h-[150px] top-[12%] left-[59%] rounded-full bg-blue-100 shadow-[0px_0px_80px_rgba(191,219,254,0.7)]"></div>
+        <div className="absolute w-[150px] h-[150px] top-[12%] left-[59%] rounded-full bg-blue-100 shadow-[0px_0px_80px_rgba(191,219,254,0.7)]"></div>
 
-<div className="absolute w-[350px] h-[350px] top-[20%] left-[65%] rounded-full bg-cyan-50 shadow-[0px_0px_80px_rgba(165,243,252,0.7)]"></div>
-
+        <div className="absolute w-[350px] h-[350px] top-[20%] left-[65%] rounded-full bg-cyan-50 shadow-[0px_0px_80px_rgba(165,243,252,0.7)]"></div>
 
         {/* Blog Header */}
         <p className="text-lg font-bold text-gray-800 ml-[7%] mt-[11%] relative z-10">
@@ -161,22 +169,10 @@ export default function BlogPage() {
         ) : displayedPosts.length > 0 ? (
           <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {displayedPosts.map((post, index) => (
-              <li
-                key={post.slug || index}
-                className="bg-white shadow-md p-5 rounded-lg hover:shadow-lg transition"
-              >
-                <Link
-                  href={`/blog/${post.slug}`}
-                  className="text-xl font-bold text-gray-900 hover:underline"
-                >
+              <li key={post.slug || index} className="bg-white shadow-md p-5 rounded-lg hover:shadow-lg transition">
+                <Link href={`/blog/${post.slug}`} className="text-xl font-bold text-gray-900 hover:underline">
                   {post.title}
                 </Link>
-                <p className="text-gray-600 mt-2">
-                  {post.excerpt || post.description || "No summary available"}
-                </p>
-                <p className="text-gray-500 mt-2 text-sm">
-                  Published: {post.date || "Unknown Date"}
-                </p>
               </li>
             ))}
           </ul>
@@ -185,9 +181,7 @@ export default function BlogPage() {
         )}
       </div>
 
-      {/* Latest Posts Section */}
       <LatestPosts />
-
       <Footer />
     </>
   );
