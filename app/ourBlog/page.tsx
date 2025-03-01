@@ -5,8 +5,8 @@ import Link from "next/link";
 import Navbar from "../components/NavBar";
 import LatestPosts from "./lastestPost";
 import Footer from "../components/footer/page";
-import { FaSearch } from "react-icons/fa"; // Import search icon
-import EverythingCryptoBlog from "./everythingCryptoBlog"; // Import Crypto Blog Component
+import { FaSearch } from "react-icons/fa";
+import EverythingCryptoBlog from "./everythingCryptoBlog";
 
 // Define the BlogPost type for TypeScript
 interface BlogPost {
@@ -30,7 +30,7 @@ export default function BlogPage() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [error, setError] = useState<string | null>(null);
-  const [showAllPosts, setShowAllPosts] = useState<boolean>(false); // Toggle state
+  const [showAllPosts, setShowAllPosts] = useState<boolean>(false);
 
   const underlineRef = useRef<HTMLDivElement>(null);
   const categoryRefs = useRef<(HTMLButtonElement | null)[]>([]);
@@ -84,38 +84,22 @@ export default function BlogPage() {
       ? posts
       : posts.filter((post) => post.category === selectedCategory);
 
-  // Get crypto posts
-  const cryptoPosts = posts.filter((post) => post.category === "everything-crypto");
-
-  // If Everything Crypto is selected, show its dedicated component
-  if (selectedCategory === "everything-crypto") {
-    return <EverythingCryptoBlog cryptoPosts={cryptoPosts} goBack={() => setSelectedCategory("all")} />;
-  }
-
-  // Limit the displayed posts when "See Less" is clicked
-  const displayedPosts = showAllPosts ? filteredPosts : filteredPosts.slice(0, 3);
-
   return (
     <>
-      {/* Wrap Navbar inside a gradient background */}
+      {/* Navbar */}
       <div className="bg-gradient-radial from-gray-100 to-white">
         <Navbar />
       </div>
 
+      {/* Page Header */}
       <div className="relative h-screen bg-gradient-radial from-gray-100 to-white flex flex-col justify-start p-5 overflow-hidden">
         {/* Decorative Background Elements */}
-        <div className="absolute w-[350px] h-[350px] top-[-1%] left-[10%] rounded-full bg-cyan-50 shadow-[0px_0px_80px_rgba(165,243,252,0.7)]"></div>
-
+        <div className="absolute w-[350px] h-[350px] top-[-1%] left-[10%] rounded-full bg-cyan-50 shadow-[0px_0px_98px_rgba(165,243,252,0.7)]"></div>
         <div className="absolute w-[230px] h-[230px] top-[35%] left-[40%] rounded-full bg-blue-100 shadow-[0px_0px_80px_rgba(191,219,254,0.7)]"></div>
-
         <div className="absolute w-[150px] h-[150px] top-[12%] left-[59%] rounded-full bg-blue-100 shadow-[0px_0px_80px_rgba(191,219,254,0.7)]"></div>
+        <div className="absolute w-[350px] h-[350px] top-[20%] left-[65%] rounded-full bg-cyan-50 shadow-[0px_0px_98px_rgba(165,243,252,0.7)]"></div>
 
-        <div className="absolute w-[350px] h-[350px] top-[20%] left-[65%] rounded-full bg-cyan-50 shadow-[0px_0px_80px_rgba(165,243,252,0.7)]"></div>
-
-        {/* Blog Header */}
-        <p className="text-lg font-bold text-gray-800 ml-[7%] mt-[11%] relative z-10">
-          OUR BLOG
-        </p>
+        <p className="text-lg font-bold text-gray-800 ml-[7%] mt-[11%] relative z-10">OUR BLOG</p>
         <h1 className="font-black text-4xl text-gray-800 ml-[7%] mt-4 relative z-10">
           STAY IN TOUCH WITH OUR <span className="block">LATEST BLOG</span>
         </h1>
@@ -143,43 +127,44 @@ export default function BlogPage() {
           <FaSearch className="text-gray-600 cursor-pointer text-xl" />
         </div>
 
-        {/* Horizontal Line with Bold Underline Effect */}
         <div className="relative w-full max-w-4xl border-b-2 border-gray-300">
-          <div
-            ref={underlineRef}
-            className="absolute bottom-[-2px] h-[3px] bg-gray-800 transition-all duration-300 ease-in-out"
-          ></div>
+          <div ref={underlineRef} className="absolute bottom-[-2px] h-[3px] bg-gray-800 transition-all duration-300 ease-in-out"></div>
         </div>
       </div>
 
-      {/* All Posts Section */}
-      <div className="max-w-5xl mx-auto px-5 py-10">
-        <div className="flex justify-between items-center mb-6">
-          <h1 className="text-3xl font-black text-gray-800">All Posts</h1>
-          <button
-            onClick={() => setShowAllPosts(!showAllPosts)}
-            className="text-blue-600 font-semibold hover:underline"
-          >
-            {showAllPosts ? "See Less" : "See More"}
-          </button>
-        </div>
+      {/* Everything Crypto Section - Only Show When Selected */}
+      {selectedCategory === "everything-crypto" ? (
+        <EverythingCryptoBlog />
+      ) : (
+        /* All Posts Section (Visible when not in 'Everything Crypto' mode) */
+        <div className="max-w-5xl mx-auto px-5 py-10">
+          <div className="flex justify-between items-center mb-6">
+            <h1 className="text-3xl font-black text-gray-800">All Posts</h1>
+            <button
+              onClick={() => setShowAllPosts(!showAllPosts)}
+              className="text-blue-600 font-semibold hover:underline"
+            >
+              {showAllPosts ? "See Less" : "See More"}
+            </button>
+          </div>
 
-        {error ? (
-          <div className="text-center text-red-600 font-semibold">{error}</div>
-        ) : displayedPosts.length > 0 ? (
-          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {displayedPosts.map((post, index) => (
-              <li key={post.slug || index} className="bg-white shadow-md p-5 rounded-lg hover:shadow-lg transition">
-                <Link href={`/blog/${post.slug}`} className="text-xl font-bold text-gray-900 hover:underline">
-                  {post.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p className="text-center text-gray-600">No blog posts available for this category.</p>
-        )}
-      </div>
+          {error ? (
+            <div className="text-center text-red-600 font-semibold">{error}</div>
+          ) : filteredPosts.length > 0 ? (
+            <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredPosts.slice(0, showAllPosts ? filteredPosts.length : 3).map((post, index) => (
+                <li key={post.slug || index} className="bg-white shadow-md p-5 rounded-lg hover:shadow-lg transition">
+                  <Link href={`/blog/${post.slug}`} className="text-xl font-bold text-gray-900 hover:underline">
+                    {post.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="text-center text-gray-600">No blog posts available for this category.</p>
+          )}
+        </div>
+      )}
 
       <LatestPosts />
       <Footer />
