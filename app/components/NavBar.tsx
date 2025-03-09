@@ -4,12 +4,14 @@ import { useState } from "react";
 import Link from "next/link";
 import ServiceDropdown from "./serviceDropdown";
 import CompanyDropdown from "./companyDropdown";
+import ScanToDownload from "./scanToDownload/page"; // Import ScanToDownload component
 import Image from "next/image";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai"; // Mobile menu icons
 
 const Navbar = () => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // Mobile menu state
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScanOpen, setIsScanOpen] = useState(false); // State for scan popup
 
   const handleCloseDropdown = () => {
     setOpenDropdown(null);
@@ -63,17 +65,16 @@ const Navbar = () => {
 
           {/* Download Button - Visible on Desktop */}
           <div className="hidden md:block">
-            <button className="border border-black rounded-[15px] px-4 py-2 text-[14px] lg:text-[16px] cursor-pointer hover:bg-[#062746] hover:text-white transition duration-200">
+            <button
+              className="border border-black rounded-[15px] px-4 py-2 text-[14px] lg:text-[16px] cursor-pointer hover:bg-[#062746] hover:text-white transition duration-200"
+              onClick={() => setIsScanOpen(true)}
+            >
               Scan to Download App
             </button>
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-[24px]"
-            onClick={toggleMobileMenu}
-            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"} // Accessibility fix
-          >
+          <button className="md:hidden text-[24px]" onClick={toggleMobileMenu} aria-label="Open menu">
             {isMobileMenuOpen ? <AiOutlineClose /> : <AiOutlineMenu />}
           </button>
         </div>
@@ -117,7 +118,10 @@ const Navbar = () => {
             <li>
               <button
                 className="border border-white rounded-[15px] px-6 py-3 text-[16px] cursor-pointer hover:bg-white hover:text-black transition duration-200"
-                onClick={toggleMobileMenu}
+                onClick={() => {
+                  toggleMobileMenu();
+                  setIsScanOpen(true);
+                }}
               >
                 Scan to Download App
               </button>
@@ -125,6 +129,9 @@ const Navbar = () => {
           </ul>
         </div>
       )}
+
+      {/* ScanToDownload Popup */}
+      <ScanToDownload isOpen={isScanOpen} onClose={() => setIsScanOpen(false)} />
     </>
   );
 };
