@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation"; // Import router
 import ServiceDropdown from "./serviceDropdown";
 import CompanyDropdown from "./companyDropdown";
 import Image from "next/image";
@@ -10,6 +11,7 @@ import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai"; // Mobile menu i
 const Navbar = () => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // Mobile menu state
+  const router = useRouter(); // Initialize Next.js router
 
   const handleCloseDropdown = () => {
     setOpenDropdown(null);
@@ -23,8 +25,9 @@ const Navbar = () => {
     setIsMobileMenuOpen((prev) => !prev);
   };
 
-  const handleLinkClick = () => {
-    setIsMobileMenuOpen(false); // Close the mobile menu when a link is clicked
+  const handleLinkClick = (url: string) => {
+    setIsMobileMenuOpen(false); // Close the mobile menu
+    router.push(url); // Navigate to the URL
   };
 
   return (
@@ -54,13 +57,13 @@ const Navbar = () => {
               />
             </li>
             <li>
-              <Link href="/ourBlog" onClick={handleLinkClick} className="flex items-end gap-2 text-[16px] lg:text-[18px] hover:text-gray-500 transition duration-200">
-                <span>Our Blog</span>
+              <Link href="/ourBlog" className="text-[16px] lg:text-[18px] hover:text-gray-500 transition duration-200">
+                Our Blog
               </Link>
             </li>
             <li>
-              <Link href="/ambassador" onClick={handleLinkClick} className="flex items-end gap-2 text-[16px] lg:text-[18px] hover:text-gray-500 transition duration-200">
-                <span>Become an Ambassador</span>
+              <Link href="/ambassador" className="text-[16px] lg:text-[18px] hover:text-gray-500 transition duration-200">
+                Become an Ambassador
               </Link>
             </li>
           </ul>
@@ -117,19 +120,19 @@ const Navbar = () => {
                 />
               </li>
               <li>
-                <Link href="/ourBlog" onClick={handleLinkClick} className="text-[18px] hover:text-gray-500 transition duration-200">
+                <button className="text-[18px] hover:text-gray-500 transition duration-200" onClick={() => handleLinkClick("/ourBlog")}>
                   Our Blog
-                </Link>
+                </button>
               </li>
               <li>
-                <Link href="/ambassador" onClick={handleLinkClick} className="text-[18px] hover:text-gray-500 transition duration-200">
+                <button className="text-[18px] hover:text-gray-500 transition duration-200" onClick={() => handleLinkClick("/ambassador")}>
                   Become an Ambassador
-                </Link>
+                </button>
               </li>
               <li>
                 <button
                   className="border border-black rounded-[15px] px-6 py-3 text-[16px] cursor-pointer hover:bg-black hover:text-white transition duration-200"
-                  onClick={handleLinkClick}
+                  onClick={toggleMobileMenu}
                 >
                   Scan to Download App
                 </button>
