@@ -85,49 +85,58 @@ const Navbar = () => {
 
       {/* Mobile Navigation Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 bg-black bg-opacity-80 flex flex-col items-center justify-center z-50">
-          <button
-            className="absolute top-5 right-5 text-white text-[28px]"
-            onClick={toggleMobileMenu}
-            aria-label="Close menu"
-          >
-            <AiOutlineClose />
-          </button>
-          <ul className="flex flex-col items-center space-y-6 text-white text-[18px]">
-            <li>
-              <ServiceDropdown
-                isOpen={openDropdown === "service"}
-                toggleDropdown={() => toggleDropdown("service")}
-                closeDropdown={handleCloseDropdown}
-              />
-            </li>
-            <li>
-              <CompanyDropdown
-                isOpen={openDropdown === "company"}
-                toggleDropdown={() => toggleDropdown("company")}
-                closeDropdown={handleCloseDropdown}
-              />
-            </li>
-            <li>
-              <Link href="/ourBlog" onClick={handleLinkClick} className="flex items-end gap-2 text-[18px] hover:text-gray-300 transition duration-200">
-                <span>Our Blog</span>
-              </Link>
-            </li>
-            <li>
-              <Link href="/ambassador" onClick={handleLinkClick} className="flex items-end gap-2 text-[18px] hover:text-gray-300 transition duration-200">
-                <span>Become an Ambassador</span>
-              </Link>
-            </li>
-            <li>
-              <button
-                className="border border-white rounded-[15px] px-6 py-3 text-[16px] cursor-pointer hover:bg-white hover:text-black transition duration-200"
-                onClick={handleLinkClick}
-              >
-                Scan to Download App
-              </button>
-            </li>
-          </ul>
-        </div>
+        <>
+          {/* Background Overlay */}
+          <div
+            className="fixed inset-0 bg-black bg-opacity-50 z-40"
+            onClick={toggleMobileMenu} // Clicking outside closes the menu
+          ></div>
+
+          {/* Mobile Menu */}
+          <div className="fixed top-0 right-0 w-4/5 sm:w-3/5 h-full bg-white shadow-lg z-50 flex flex-col items-center pt-10">
+            <button
+              className="absolute top-5 right-5 text-black text-[28px]"
+              onClick={toggleMobileMenu}
+              aria-label="Close menu"
+            >
+              <AiOutlineClose />
+            </button>
+            <ul className="flex flex-col items-center space-y-6 text-black text-[18px] w-full">
+              <li>
+                <ServiceDropdown
+                  isOpen={openDropdown === "service"}
+                  toggleDropdown={() => toggleDropdown("service")}
+                  closeDropdown={handleCloseDropdown}
+                />
+              </li>
+              <li>
+                <CompanyDropdown
+                  isOpen={openDropdown === "company"}
+                  toggleDropdown={() => toggleDropdown("company")}
+                  closeDropdown={handleCloseDropdown}
+                />
+              </li>
+              <li>
+                <Link href="/ourBlog" onClick={handleLinkClick} className="text-[18px] hover:text-gray-500 transition duration-200">
+                  Our Blog
+                </Link>
+              </li>
+              <li>
+                <Link href="/ambassador" onClick={handleLinkClick} className="text-[18px] hover:text-gray-500 transition duration-200">
+                  Become an Ambassador
+                </Link>
+              </li>
+              <li>
+                <button
+                  className="border border-black rounded-[15px] px-6 py-3 text-[16px] cursor-pointer hover:bg-black hover:text-white transition duration-200"
+                  onClick={handleLinkClick}
+                >
+                  Scan to Download App
+                </button>
+              </li>
+            </ul>
+          </div>
+        </>
       )}
     </>
   );
