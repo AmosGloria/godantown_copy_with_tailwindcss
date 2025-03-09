@@ -10,7 +10,7 @@ import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai"; // Mobile menu i
 
 const Navbar = () => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // Mobile menu state
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const router = useRouter(); // Initialize Next.js router
 
   const handleCloseDropdown = () => {
@@ -32,7 +32,7 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Navbar - Full Width & Responsive */}
+      {/* Navbar */}
       <nav className="w-full bg-white">
         <div className="container mx-auto flex items-center justify-between px-4 md:px-5 py-3">
           {/* Logo */}
@@ -47,6 +47,7 @@ const Navbar = () => {
                 isOpen={openDropdown === "service"}
                 toggleDropdown={() => toggleDropdown("service")}
                 closeDropdown={handleCloseDropdown}
+                closeMobileMenu={toggleMobileMenu} // Pass function to close mobile menu
               />
             </li>
             <li>
@@ -54,6 +55,7 @@ const Navbar = () => {
                 isOpen={openDropdown === "company"}
                 toggleDropdown={() => toggleDropdown("company")}
                 closeDropdown={handleCloseDropdown}
+                closeMobileMenu={toggleMobileMenu} // Pass function to close mobile menu
               />
             </li>
             <li>
@@ -68,7 +70,7 @@ const Navbar = () => {
             </li>
           </ul>
 
-          {/* Download Button - Visible on Desktop */}
+          {/* Download Button - Desktop Only */}
           <div className="hidden md:block">
             <button className="border border-black rounded-[15px] px-4 py-2 text-[14px] lg:text-[16px] cursor-pointer hover:bg-[#062746] hover:text-white transition duration-200">
               Scan to Download App
@@ -79,7 +81,7 @@ const Navbar = () => {
           <button
             className="md:hidden text-[24px]"
             onClick={toggleMobileMenu}
-            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"} // Accessibility fix
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
           >
             {isMobileMenuOpen ? <AiOutlineClose /> : <AiOutlineMenu />}
           </button>
@@ -89,14 +91,14 @@ const Navbar = () => {
       {/* Mobile Navigation Menu */}
       {isMobileMenuOpen && (
         <>
-          {/* Background Overlay */}
+          {/* Background Overlay - Only Covers Navbar Area */}
           <div
-            className="fixed inset-0 bg-black bg-opacity-50 z-40"
+            className="fixed top-0 left-0 w-full h-auto bg-black bg-opacity-50 z-40"
             onClick={toggleMobileMenu} // Clicking outside closes the menu
           ></div>
 
           {/* Mobile Menu */}
-          <div className="fixed top-0 right-0 w-4/5 sm:w-3/5 h-full bg-white shadow-lg z-50 flex flex-col items-center pt-10">
+          <div className="fixed top-0 right-0 w-4/5 sm:w-3/5 h-auto bg-white shadow-lg z-50 flex flex-col items-center pt-10 pb-6">
             <button
               className="absolute top-5 right-5 text-black text-[28px]"
               onClick={toggleMobileMenu}
@@ -110,6 +112,7 @@ const Navbar = () => {
                   isOpen={openDropdown === "service"}
                   toggleDropdown={() => toggleDropdown("service")}
                   closeDropdown={handleCloseDropdown}
+                  closeMobileMenu={toggleMobileMenu} // Pass function to close menu
                 />
               </li>
               <li>
@@ -117,6 +120,7 @@ const Navbar = () => {
                   isOpen={openDropdown === "company"}
                   toggleDropdown={() => toggleDropdown("company")}
                   closeDropdown={handleCloseDropdown}
+                  closeMobileMenu={toggleMobileMenu} // Pass function to close menu
                 />
               </li>
               <li>
