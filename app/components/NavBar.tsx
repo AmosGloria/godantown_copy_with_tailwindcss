@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation"; // Import router
 import ServiceDropdown from "./serviceDropdown";
 import CompanyDropdown from "./companyDropdown";
 import Image from "next/image";
@@ -10,8 +9,7 @@ import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai"; // Mobile menu i
 
 const Navbar = () => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const router = useRouter(); // Initialize Next.js router
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // Mobile menu state
 
   const handleCloseDropdown = () => {
     setOpenDropdown(null);
@@ -25,19 +23,14 @@ const Navbar = () => {
     setIsMobileMenuOpen((prev) => !prev);
   };
 
-  const handleLinkClick = (url: string) => {
-    setIsMobileMenuOpen(false); // Close the mobile menu
-    router.push(url); // Navigate to the URL
-  };
-
   return (
     <>
-      {/* Navbar */}
+      {/* Navbar - Full Width & Responsive */}
       <nav className="w-full bg-white">
-        <div className="container mx-auto flex items-center justify-between px-4 md:px-5 py-3">
+        <div className="container mx-auto flex items-center justify-between px-5 py-3">
           {/* Logo */}
           <Link href="/">
-            <Image src="/godantown log.webp" alt="Company Logo" width={150} height={150} className="w-28 sm:w-32 md:w-48" />
+            <Image src="/godantown log.webp" alt="Company Logo" width={150} height={150} className="w-32 md:w-48" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -47,7 +40,6 @@ const Navbar = () => {
                 isOpen={openDropdown === "service"}
                 toggleDropdown={() => toggleDropdown("service")}
                 closeDropdown={handleCloseDropdown}
-                closeMobileMenu={toggleMobileMenu} // Pass function to close mobile menu
               />
             </li>
             <li>
@@ -55,22 +47,21 @@ const Navbar = () => {
                 isOpen={openDropdown === "company"}
                 toggleDropdown={() => toggleDropdown("company")}
                 closeDropdown={handleCloseDropdown}
-                closeMobileMenu={toggleMobileMenu} // Pass function to close mobile menu
               />
             </li>
             <li>
-              <Link href="/ourBlog" className="text-[16px] lg:text-[18px] hover:text-gray-500 transition duration-200">
-                Our Blog
+              <Link href="/ourBlog" className="flex items-end gap-2 text-[16px] lg:text-[18px] hover:text-gray-500 transition duration-200">
+                <span>Our Blog</span>
               </Link>
             </li>
             <li>
-              <Link href="/ambassador" className="text-[16px] lg:text-[18px] hover:text-gray-500 transition duration-200">
-                Become an Ambassador
+              <Link href="/ambassador" className="flex items-end gap-2 text-[16px] lg:text-[18px] hover:text-gray-500 transition duration-200">
+                <span>Become an Ambassador</span>
               </Link>
             </li>
           </ul>
 
-          {/* Download Button - Desktop Only */}
+          {/* Download Button - Visible on Desktop */}
           <div className="hidden md:block">
             <button className="border border-black rounded-[15px] px-4 py-2 text-[14px] lg:text-[16px] cursor-pointer hover:bg-[#062746] hover:text-white transition duration-200">
               Scan to Download App
@@ -81,7 +72,7 @@ const Navbar = () => {
           <button
             className="md:hidden text-[24px]"
             onClick={toggleMobileMenu}
-            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"} // Accessibility fix
           >
             {isMobileMenuOpen ? <AiOutlineClose /> : <AiOutlineMenu />}
           </button>
@@ -90,60 +81,49 @@ const Navbar = () => {
 
       {/* Mobile Navigation Menu */}
       {isMobileMenuOpen && (
-        <>
-          {/* Background Overlay - Only Covers Navbar Area */}
-          <div
-            className="fixed top-0 left-0 w-full h-auto bg-black bg-opacity-50 z-40"
-            onClick={toggleMobileMenu} // Clicking outside closes the menu
-          ></div>
-
-          {/* Mobile Menu */}
-          <div className="fixed top-0 right-0 w-4/5 sm:w-3/5 h-auto bg-white shadow-lg z-50 flex flex-col items-center pt-10 pb-6">
-            <button
-              className="absolute top-5 right-5 text-black text-[28px]"
-              onClick={toggleMobileMenu}
-              aria-label="Close menu"
-            >
-              <AiOutlineClose />
-            </button>
-            <ul className="flex flex-col items-center space-y-6 text-black text-[18px] w-full">
-              <li>
-                <ServiceDropdown
-                  isOpen={openDropdown === "service"}
-                  toggleDropdown={() => toggleDropdown("service")}
-                  closeDropdown={handleCloseDropdown}
-                  closeMobileMenu={toggleMobileMenu} // Pass function to close menu
-                />
-              </li>
-              <li>
-                <CompanyDropdown
-                  isOpen={openDropdown === "company"}
-                  toggleDropdown={() => toggleDropdown("company")}
-                  closeDropdown={handleCloseDropdown}
-                  closeMobileMenu={toggleMobileMenu} // Pass function to close menu
-                />
-              </li>
-              <li>
-                <button className="text-[18px] hover:text-gray-500 transition duration-200" onClick={() => handleLinkClick("/ourBlog")}>
-                  Our Blog
-                </button>
-              </li>
-              <li>
-                <button className="text-[18px] hover:text-gray-500 transition duration-200" onClick={() => handleLinkClick("/ambassador")}>
-                  Become an Ambassador
-                </button>
-              </li>
-              <li>
-                <button
-                  className="border border-black rounded-[15px] px-6 py-3 text-[16px] cursor-pointer hover:bg-black hover:text-white transition duration-200"
-                  onClick={toggleMobileMenu}
-                >
-                  Scan to Download App
-                </button>
-              </li>
-            </ul>
-          </div>
-        </>
+        <div className="md:hidden fixed inset-0 bg-black bg-opacity-80 flex flex-col items-center justify-center z-50">
+          <button
+            className="absolute top-5 right-5 text-white text-[28px]"
+            onClick={toggleMobileMenu}
+            aria-label="Close menu"
+          >
+            <AiOutlineClose />
+          </button>
+          <ul className="flex flex-col items-center space-y-6 text-white text-[18px]">
+            <li>
+              <ServiceDropdown
+                isOpen={openDropdown === "service"}
+                toggleDropdown={() => toggleDropdown("service")}
+                closeDropdown={handleCloseDropdown}
+              />
+            </li>
+            <li>
+              <CompanyDropdown
+                isOpen={openDropdown === "company"}
+                toggleDropdown={() => toggleDropdown("company")}
+                closeDropdown={handleCloseDropdown}
+              />
+            </li>
+            <li>
+              <Link href="/ourBlog" className="flex items-end gap-2 text-[18px] hover:text-gray-300 transition duration-200" onClick={toggleMobileMenu}>
+                <span>Our Blog</span>
+              </Link>
+            </li>
+            <li>
+              <Link href="/ambassador" className="flex items-end gap-2 text-[18px] hover:text-gray-300 transition duration-200" onClick={toggleMobileMenu}>
+                <span>Become an Ambassador</span>
+              </Link>
+            </li>
+            <li>
+              <button
+                className="border border-white rounded-[15px] px-6 py-3 text-[16px] cursor-pointer hover:bg-white hover:text-black transition duration-200"
+                onClick={toggleMobileMenu}
+              >
+                Scan to Download App
+              </button>
+            </li>
+          </ul>
+        </div>
       )}
     </>
   );

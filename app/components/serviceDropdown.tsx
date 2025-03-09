@@ -1,24 +1,22 @@
 "use client";
 
-import { FC, useEffect, useRef } from "react";
+import { FC, useEffect, useRef } from "react"; // Import useEffect and useRef for handling outside clicks
 import { AiFillCaretDown } from "react-icons/ai";
-import { useRouter } from "next/navigation"; // Import router for navigation
+import Link from "next/link";
 
 interface DropdownProps {
   isOpen: boolean;
   toggleDropdown: () => void;
   closeDropdown: () => void;
-  closeMobileMenu?: () => void; // ✅ Added this to close mobile menu on mobile
 }
 
-const ServiceDropdown: FC<DropdownProps> = ({ isOpen, toggleDropdown, closeDropdown, closeMobileMenu }) => {
-  const dropdownRef = useRef<HTMLDivElement>(null);
-  const router = useRouter();
+const ServiceDropdown: FC<DropdownProps> = ({ isOpen, toggleDropdown, closeDropdown }) => {
+  const dropdownRef = useRef<HTMLDivElement>(null); // Reference to the dropdown container
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        closeDropdown();
+        closeDropdown(); // Close the dropdown if the click is outside
       }
     };
 
@@ -29,51 +27,45 @@ const ServiceDropdown: FC<DropdownProps> = ({ isOpen, toggleDropdown, closeDropd
     }
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside); // Cleanup listener on unmount
     };
   }, [isOpen, closeDropdown]);
 
-  const handleLinkClick = (url: string) => {
-    closeDropdown();
-    if (closeMobileMenu) closeMobileMenu(); // ✅ Close mobile menu if applicable
-    router.push(url);
-  };
-
   return (
     <div
-      className="relative inline-block mx-4 md:mx-[6%] px-4 md:px-[3%] mt-2 md:mt-[2%]"
-      ref={dropdownRef}
-      onClick={(e) => e.stopPropagation()}
+      className="relative inline-block mx-[6%] px-[3%] mt-[2%]"
+      ref={dropdownRef} // Attach the ref to the dropdown container
+      onClick={(e) => e.stopPropagation()} // Prevents event bubbling
     >
       <button
         onClick={toggleDropdown}
-        className="flex items-center justify-between text-[18px] md:text-[20px] bg-transparent border-none cursor-pointer w-full"
+        className="flex items-center justify-between text-[20px] bg-transparent border-none cursor-pointer w-full"
       >
         <span className="flex-grow text-left">Services</span>
         <AiFillCaretDown className="ml-auto" />
       </button>
 
       {isOpen && (
-        <ul className="absolute top-full left-0 bg-white border border-gray-300 rounded-md w-[200px] md:w-[180px] h-auto list-none py-2 z-50 shadow-lg">
-          <li className="py-3 px-4 hover:bg-gray-300">
-            <button onClick={() => handleLinkClick("/crypto")} className="text-[15px] text-black block w-full text-left">
+        <ul className="absolute top-full left-0 bg-white border border-gray-300 rounded-md w-[180px] h-auto list-none py-2 z-10 shadow-md">
+          <li onClick={closeDropdown} className="py-3 px-2 hover:bg-gray-300">
+            <Link href="/crypto" className="text-[15px] text-black block">
               Crypto
-            </button>
+            </Link>
           </li>
-          <li className="py-3 px-4 hover:bg-gray-300">
-            <button onClick={() => handleLinkClick("/utilityPayment")} className="text-[15px] text-black block w-full text-left">
+          <li onClick={closeDropdown} className="py-3 px-2 hover:bg-gray-300">
+            <Link href="/utilityPayment" className="text-[15px] text-black block">
               Utility Payments
-            </button>
+            </Link>
           </li>
-          <li className="py-3 px-4 hover:bg-gray-300">
-            <button onClick={() => handleLinkClick("/airtime")} className="text-[15px] text-black block w-full text-left">
+          <li onClick={closeDropdown} className="py-3 px-2 hover:bg-gray-300">
+            <Link href="/airtime" className="text-[15px] text-black block">
               Airtime
-            </button>
+            </Link>
           </li>
-          <li className="py-3 px-4 hover:bg-gray-300">
-            <button onClick={() => handleLinkClick("/virtualDollarCard")} className="text-[15px] text-black block w-full text-left">
+          <li onClick={closeDropdown} className="py-3 px-2 hover:bg-gray-300">
+            <Link href="/virtualDollarCard" className="text-[15px] text-black block">
               Virtual Dollar Card
-            </button>
+            </Link>
           </li>
         </ul>
       )}
