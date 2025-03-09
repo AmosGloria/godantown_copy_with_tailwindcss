@@ -23,6 +23,10 @@ const Navbar = () => {
     setIsMobileMenuOpen((prev) => !prev);
   };
 
+  const handleLinkClick = () => {
+    setIsMobileMenuOpen(false); // Close the mobile menu when a link is clicked
+  };
+
   return (
     <>
       {/* Navbar - Full Width & Responsive */}
@@ -50,12 +54,12 @@ const Navbar = () => {
               />
             </li>
             <li>
-              <Link href="/ourBlog" className="flex items-end gap-2 text-[16px] lg:text-[18px] hover:text-gray-500 transition duration-200">
+              <Link href="/ourBlog" onClick={handleLinkClick} className="flex items-end gap-2 text-[16px] lg:text-[18px] hover:text-gray-500 transition duration-200">
                 <span>Our Blog</span>
               </Link>
             </li>
             <li>
-              <Link href="/ambassador" className="flex items-end gap-2 text-[16px] lg:text-[18px] hover:text-gray-500 transition duration-200">
+              <Link href="/ambassador" onClick={handleLinkClick} className="flex items-end gap-2 text-[16px] lg:text-[18px] hover:text-gray-500 transition duration-200">
                 <span>Become an Ambassador</span>
               </Link>
             </li>
@@ -105,19 +109,19 @@ const Navbar = () => {
               />
             </li>
             <li>
-              <Link href="/ourBlog" className="flex items-end gap-2 text-[18px] hover:text-gray-300 transition duration-200" onClick={toggleMobileMenu}>
+              <Link href="/ourBlog" onClick={handleLinkClick} className="flex items-end gap-2 text-[18px] hover:text-gray-300 transition duration-200">
                 <span>Our Blog</span>
               </Link>
             </li>
             <li>
-              <Link href="/ambassador" className="flex items-end gap-2 text-[18px] hover:text-gray-300 transition duration-200" onClick={toggleMobileMenu}>
+              <Link href="/ambassador" onClick={handleLinkClick} className="flex items-end gap-2 text-[18px] hover:text-gray-300 transition duration-200">
                 <span>Become an Ambassador</span>
               </Link>
             </li>
             <li>
               <button
                 className="border border-white rounded-[15px] px-6 py-3 text-[16px] cursor-pointer hover:bg-white hover:text-black transition duration-200"
-                onClick={toggleMobileMenu}
+                onClick={handleLinkClick}
               >
                 Scan to Download App
               </button>
