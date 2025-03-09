@@ -27,10 +27,10 @@ const Navbar = () => {
     <>
       {/* Navbar - Full Width & Responsive */}
       <nav className="w-full bg-white">
-        <div className="container mx-auto flex items-center justify-between px-5 py-3">
+        <div className="container mx-auto flex items-center justify-between px-4 md:px-5 py-3">
           {/* Logo */}
           <Link href="/">
-            <Image src="/godantown log.webp" alt="Company Logo" width={150} height={150} className="w-32 md:w-48" />
+            <Image src="/godantown log.webp" alt="Company Logo" width={150} height={150} className="w-28 sm:w-32 md:w-48" />
           </Link>
 
           {/* Desktop Navigation */}
