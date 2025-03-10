@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import ServiceDropdown from "./serviceDropdown";
 import CompanyDropdown from "./companyDropdown";
-import ScanToDownload from "./scanToDownload/page"; // Import ScanToDownload component
+import ScanToDownload from "./scanToDownload";
 import Image from "next/image";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai"; // Mobile menu icons
 
