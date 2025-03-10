@@ -17,7 +17,7 @@ export default function AmbassadorPage() {
         
         {/* Left Side */}
         <div className="flex-1 max-w-[68%] mt-8">
-          <h1 className="text-[3.5rem] font-bold font-sans mb-5">
+          <h1 className="text-[2rem]  md:text-[3.5rem] font-bold font-sans mb-5">
             Welcome to Dantown&apos;s Campus
             <span className="text-navy"> Ambassador</span> Program
           </h1>
