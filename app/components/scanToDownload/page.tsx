@@ -34,7 +34,7 @@ const ScanToDownload: React.FC<ScanToDownloadProps> = ({ isOpen, onClose }) => {
     <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-80 z-50 p-4">
       <div
         ref={modalRef}
-        className="relative bg-white rounded-lg shadow-lg p-6 w-full max-w-sm sm:max-w-md md:max-w-lg"
+        className="relative bg-white shadow-lg p-6 w-full sm:w-full md:max-w-lg flex flex-col items-center justify-center min-h-[380px] ml-[-32px]" // Shift the entire modal container
       >
         <button
           className="absolute top-3 right-3 text-gray-600 hover:text-black"
@@ -43,13 +43,13 @@ const ScanToDownload: React.FC<ScanToDownloadProps> = ({ isOpen, onClose }) => {
         >
           <AiOutlineClose size={24} />
         </button>
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center justify-center w-full text-center">
           <Image
             src="/scanToDownload.png"
             alt="Scan to Download"
-            width={250}
-            height={250}
-            className="w-3/4 sm:w-2/3 md:w-1/2"
+            width={1000}
+            height={500}
+            className="w-full h-auto"
           />
           <p className="text-center text-gray-700 font-semibold mt-3 text-sm sm:text-base">
             Scan the QR code to download the app
