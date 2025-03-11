@@ -25,17 +25,18 @@ export default function AmbassadorPage() {
             Leverage your reach and influence on your campus to earn passive income for life and win cool monthly prizes.
           </p>
           
-          {/* Apply Button */}
-          <div className="flex w-full justify-left md:justify-left">
-            <Link href="https://docs.google.com/forms/d/e/1FAIpQLSelIxU_41SleXbwEqRx8sJCnvRNiyhwhh1ansirNR6phvBFpA/viewform">
-              <button className="bg-cyan-400 text-white border-none px-6 py-3 rounded-md text-base mt-5 transition-all duration-300 hover:bg-cyan-600 hover:scale-105">
-                Apply Here <span>&#8594;</span>
-              </button>
-            </Link>
-          </div>
+        {/* Apply Button */}
+<div className="flex w-full justify-center md:justify-start">
+  <Link href="https://docs.google.com/forms/d/e/1FAIpQLSelIxU_41SleXbwEqRx8sJCnvRNiyhwhh1ansirNR6phvBFpA/viewform">
+    <button className="bg-cyan-400 text-white border-none px-6 py-3 rounded-md text-base mt-5 transition-all duration-300 hover:bg-cyan-600 hover:scale-105">
+      Apply Here <span>&#8594;</span>
+    </button>
+  </Link>
+</div>
+
 
           {/* Hara Image */}
-          <div className="mt-5 grayscale flex justify-left md:justify-left w-full">
+          <div className="mt-5 grayscale flex justify-center md:justify-start w-full">
             <Image src="/hara.png" alt="hara" width={180} height={80} />
           </div>
         </div>
