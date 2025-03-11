@@ -17,6 +17,10 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
+      <head>
+        {/* Viewport meta tag to ensure mobile responsiveness */}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </head>
       <body>{children}</body>
     </html>
   );

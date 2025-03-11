@@ -35,7 +35,14 @@ module.exports = {
       },
       clipPath: {
         'circle-50': 'circle(50% 50% at 50% 0%)',  // Custom clip-path
-      }
+      },
+      screens: {
+        sm: '640px',  // Mobile breakpoint
+        md: '768px',  // Tablet breakpoint
+        lg: '1024px', // Desktop breakpoint
+        xl: '1280px',
+        '2xl': '1536px',
+      },
     },
   },
   plugins: [],
