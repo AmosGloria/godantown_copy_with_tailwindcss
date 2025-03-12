@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function BecomePart() {
   return (
-    <div className="flex flex-row justify-between items-center gap-8 px-4 sm:px-6 md:px-10 lg:px-20 mt-10 mb-14 w-full min-w-0 overflow-hidden">
+    <div className="flex flex-row justify-between items-center gap-8 px-4 sm:px-6 md:px-10 lg:px-20 mt-4 mb-14 w-full min-w-0 overflow-hidden">
       {/* Left Side - Image */}
       <div className="flex flex-1 justify-center items-center w-1/2 lg:w-2/5 min-w-0">
         <div className="relative w-full max-w-[400px] h-auto">

@@ -16,7 +16,7 @@ export default function AmbassadorPage() {
       <div className="flex flex-wrap justify-start items-start px-[6%] py-[3%] gap-0 lg:gap-4 relative">
         
         {/* Left Side */}
-        <div className="flex-1 w-full sm:w-[50%] mt-8 flex flex-col items-center sm:items-center">
+        <div className="flex-1 w-full sm:w-[50%] mt-8 flex flex-col items-center sm:items-center justify-between flex-grow">
           <h1 className="w-full text-[1.6rem] md:text-[3.3rem] font-bold font-sans mb-5 text-center md:text-left">
             Welcome to Dantown&apos;s Campus
             <span className="text-navy"> Ambassador</span> Program
@@ -24,21 +24,21 @@ export default function AmbassadorPage() {
           <p className="w-full text-base leading-7 mb-5 text-gray-800 text-center md:text-left">
             Leverage your reach and influence on your campus to earn passive income for life and win cool monthly prizes.
           </p>
-          
-        {/* Apply Button */}
-<div className="flex w-full justify-center md:justify-start">
-  <Link href="https://docs.google.com/forms/d/e/1FAIpQLSelIxU_41SleXbwEqRx8sJCnvRNiyhwhh1ansirNR6phvBFpA/viewform">
-    <button className="bg-cyan-400 text-white border-none px-6 py-3 rounded-md text-base mt-5 transition-all duration-300 hover:bg-cyan-600 hover:scale-105">
-      Apply Here <span>&#8594;</span>
-    </button>
-  </Link>
-</div>
 
+          {/* Apply Button */}
+          <div className="flex w-full justify-center md:justify-start sm:mt-20 mt-12 relative z-[10]">
+            <Link href="https://docs.google.com/forms/d/e/1FAIpQLSelIxU_41SleXbwEqRx8sJCnvRNiyhwhh1ansirNR6phvBFpA/viewform">
+              <button className="bg-cyan-400 text-white border-none px-6 py-3 rounded-md text-base mt-5 transition-all duration-300 hover:bg-cyan-600 hover:scale-105">
+                Apply Here <span>&#8594;</span>
+              </button>
+            </Link>
+          </div>
 
           {/* Hara Image */}
-          <div className="mt-5 grayscale flex justify-center md:justify-start w-full">
+          <div className="grayscale flex justify-center md:justify-start w-full mt-10 sm:mt-32">
             <Image src="/hara.png" alt="hara" width={180} height={80} />
           </div>
+
         </div>
 
         {/* Right Side - Images Adjusted */}
@@ -73,8 +73,9 @@ export default function AmbassadorPage() {
             alt="Campus Ambassador" 
             width={600} 
             height={400} 
-            className="!w-[600px] !h-[350px] !max-w-none sm:mr-[-160px] relative z-[0] opacity-30 sm:opacity-100"
+            className="!w-[600px] !h-[350px] !max-w-none sm:mr-[-160px] relative z-[0] opacity-30 sm:opacity-100 md:top-0 top-[-268px] "
           />
+
         </div>
       </div>
 
