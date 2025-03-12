@@ -19,7 +19,7 @@ export default function WhoAreWeLookingFor() {
       </h2>
 
       {/* Traits Container */}
-      <div className="flex flex-nowrap justify-center gap-6 overflow-x-auto md:overflow-visible px-4 md:px-0">
+      <div className="flex flex-nowrap justify-center gap-6 overflow-x-auto md:overflow-visible px-4 md:px-0 ">
         {/* Influential */}
         <div className="bg-white shadow-md rounded-lg p-6 w-[300px] sm:w-[350px] md:w-[370px] h-[250px] text-center flex flex-col justify-center shrink-0">
           <div className="flex items-center justify-center gap-4">

@@ -28,7 +28,7 @@ const Navbar = () => {
   return (
     <>
       {/* Navbar - Full Width & Responsive */}
-      <nav className="w-full bg-white">
+      <nav className="w-full bg-white relative">
         <div className="container mx-auto flex items-center justify-between px-5 py-3">
           {/* Logo */}
           <Link href="/">
@@ -42,7 +42,7 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <ul className="hidden md:flex list-none space-x-6 lg:space-x-8">
+          <ul className="hidden md:flex list-none space-x-6 lg:space-x-8 z-10">
             <li>
               <ServiceDropdown
                 isOpen={openDropdown === "service"}
@@ -76,7 +76,7 @@ const Navbar = () => {
           </ul>
 
           {/* Download Button - Visible on Desktop */}
-          <div className="hidden md:block">
+          <div className="hidden md:block z-10">
             <button
               className="border border-black rounded-[15px] px-4 py-2 text-[14px] lg:text-[16px] cursor-pointer hover:bg-[#062746] hover:text-white transition duration-200"
               onClick={() => setIsScanOpen(true)}
