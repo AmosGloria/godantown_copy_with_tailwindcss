@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function WhoAreWeLookingFor() {
   return (
-    <div className="bg-gray-100 py-12 px-5 md:px-10 lg:px-20 w-full overflow-hidden">
+    <div className="bg-gray-100 py-12 px-5 md:px-10 lg:px-20 w-full overflow-hidden ">
       {/* Title */}
       <h1 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800 text-center">
         Who are we looking for?
