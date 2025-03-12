@@ -99,7 +99,7 @@ export default function BlogPage() {
         <div className="absolute w-[150px] h-[150px] top-[12%] left-[59%] rounded-full bg-blue-100 shadow-[0px_0px_80px_rgba(191,219,254,0.7)]"></div>
         <div className="absolute w-[350px] h-[350px] top-[20%] left-[65%] rounded-full bg-cyan-50 shadow-[0px_0px_98px_rgba(165,243,252,0.7)]"></div>
 
-        <p className="text-lg font-bold text-gray-800 ml-[7%] mt-[11%] relative z-10">OUR BLOG</p>
+        <p className="text-lg font-bold text-gray-800 ml-[7%] mt-[6%] relative z-10">OUR BLOG</p>
         <h1 className="font-black text-4xl text-gray-800 ml-[7%] mt-4 relative z-10">
           STAY IN TOUCH WITH OUR <span className="block">LATEST BLOG</span>
         </h1>
