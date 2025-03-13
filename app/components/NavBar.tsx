@@ -96,9 +96,9 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Mobile Navigation Menu */}
+      {/* Mobile Navigation Menu with 3D Borderless Effect */}
       {isMobileMenuOpen && (
-        <div className="absolute top-0 left-0 w-full bg-white z-50 shadow-md">
+        <div className="absolute top-0 left-0 w-full bg-white z-50 shadow-md transform transition-all ease-in-out duration-300 rounded-xl border-0">
           <button
             className="absolute top-5 right-5 text-black text-[28px]"
             onClick={toggleMobileMenu}
@@ -106,51 +106,63 @@ const Navbar = () => {
           >
             <AiOutlineClose />
           </button>
-          <ul className="flex flex-col items-center py-6 text-black text-[18px]">
-            <li>
-              <ServiceDropdown
-                isOpen={openDropdown === "service"}
-                toggleDropdown={() => toggleDropdown("service")}
-                closeDropdown={handleCloseDropdown}
+          {/* Aligning everything to the left and vertically aligned */}
+          <div className="px-6 py-6 flex flex-col items-start text-black text-base space-y-4">
+            <div className="flex items-center justify-between w-full">
+              <Image
+                src="/godantown log.webp"
+                alt="Company Logo"
+                width={100}
+                height={100}
+                className="w-32"
               />
-            </li>
-            <li>
-              <CompanyDropdown
-                isOpen={openDropdown === "company"}
-                toggleDropdown={() => toggleDropdown("company")}
-                closeDropdown={handleCloseDropdown}
-              />
-            </li>
-            <li>
-              <Link
-                href="/ourBlog"
-                className="block py-2 hover:text-gray-500"
-                onClick={toggleMobileMenu}
-              >
-                Our Blog
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/ambassador"
-                className="block py-2 hover:text-gray-500"
-                onClick={toggleMobileMenu}
-              >
-                Become an Ambassador
-              </Link>
-            </li>
-            <li>
-              <button
-                className="border border-black rounded-[15px] px-6 py-3 text-[16px] cursor-pointer hover:bg-[#062746] hover:text-white transition duration-200"
-                onClick={() => {
-                  toggleMobileMenu();
-                  setIsScanOpen(true);
-                }}
-              >
-                Scan to Download App
-              </button>
-            </li>
-          </ul>
+            </div>
+            <ul className="flex flex-col items-start space-y-4">
+              <li>
+                <ServiceDropdown
+                  isOpen={openDropdown === "service"}
+                  toggleDropdown={() => toggleDropdown("service")}
+                  closeDropdown={handleCloseDropdown}
+                />
+              </li>
+              <li>
+                <CompanyDropdown
+                  isOpen={openDropdown === "company"}
+                  toggleDropdown={() => toggleDropdown("company")}
+                  closeDropdown={handleCloseDropdown}
+                />
+              </li>
+              <li>
+                <Link
+                  href="/ourBlog"
+                  className="block py-2 text-base hover:text-gray-500"
+                  onClick={toggleMobileMenu}
+                >
+                  Our Blog
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/ambassador"
+                  className="block py-2 text-base hover:text-gray-500"
+                  onClick={toggleMobileMenu}
+                >
+                  Become an Ambassador
+                </Link>
+              </li>
+              <li>
+                <button
+                  className="border border-black rounded-[15px] px-6 py-3 text-base cursor-pointer hover:bg-[#062746] hover:text-white transition duration-200"
+                  onClick={() => {
+                    toggleMobileMenu();
+                    setIsScanOpen(true);
+                  }}
+                >
+                  Scan to Download App
+                </button>
+              </li>
+            </ul>
+          </div>
         </div>
       )}
 
