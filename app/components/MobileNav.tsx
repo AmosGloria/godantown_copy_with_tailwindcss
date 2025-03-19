@@ -89,8 +89,8 @@ export function Service() {
       <DropdownMenuTrigger className="flex cursor-pointer items-center gap-3">
         Services <AiFillCaretDown />
       </DropdownMenuTrigger>
-      <DropdownMenuContent>
-        <ul>
+      <DropdownMenuContent className="py-6 px-6 min-w-[200px]">
+        <ul className="space-y-3">
           <li>
             <Link href="/crypto">Crypto</Link>
           </li>
@@ -118,7 +118,7 @@ export function Company() {
         Company <AiFillCaretDown />
       </DropdownMenuTrigger>
       <DropdownMenuContent>
-        <ul>
+        <ul className="space-y-3">
           <li>
             <Link href="/aboutUs">About Us</Link>
           </li>

@@ -79,11 +79,15 @@ export default function ServiceCards() {
             We offer you ease and convenience
           </p>
           <button
-            className="px-6 py-3 text-white bg-[#236dc2] rounded-full transition duration-300 w-full sm:w-auto"
-            onClick={() => handleNavigation("/download")}
-          >
-            Download App
+          className="px-6 py-3 text-white bg-[#236dc2] rounded-full transition duration-300 w-[60%] sm:w-auto mt-4 sm:mt-0 mb-6 sm:mb-0" // Adjusted width and added margin-bottom for mobile
+          onClick={() => handleNavigation("/download")}
+>
+          Download App
           </button>
+
+
+
+
         </div>
 
         {/* Service Section - Responsive Adjustments */}
@@ -146,7 +150,7 @@ export default function ServiceCards() {
       </div>
 
       {/* Gradient Circle */}
-      <div className="absolute top-[380px] md:top-[460px] right-[5%] sm:right-[10%] transform -translate-x-14 -translate-y-32 sm:-translate-y-64 w-[320px] sm:w-[540px] h-[320px] sm:h-[540px] rounded-full bg-gradient-to-r from-blue-100 via-white to-blue-200 opacity-95 z-[-1] clip-horizontal-cut"></div>
+      <div className="absolute top-[740px] md:top-[460px] right-[-8%] sm:right-[10%] transform -translate-x-14 -translate-y-32 sm:-translate-y-64 w-[360px] sm:w-[540px] h-[320px] sm:h-[540px] rounded-full bg-gradient-to-r from-blue-100 via-white to-blue-200 opacity-95 z-[-1] clip-horizontal-cut"></div>
     </div>
   );
 }
