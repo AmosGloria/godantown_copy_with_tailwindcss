@@ -9,9 +9,8 @@ export default function CryptoOptions() {
         <span className="block mt-2">options</span>
       </h1>
 
-      {/*  Single Horizontal Line with More Space Between Sections */}
-      <div className="flex flex-wrap justify-center md:justify-start
-      font-bold items-center w-full gap-x-10 md:gap-x-32">
+      {/*  Single Vertical Line on Mobile, Horizontal Line on Larger Screens */}
+      <div className="flex flex-col md:flex-row items-center md:items-start justify-center md:justify-start font-bold w-full gap-y-10 md:gap-x-32">
         {/* Exchange Crypto */}
         <div className="flex flex-col items-center px-4 md:px-6">
           <Image src="/exchangeCrypto.png" alt="Exchange Crypto" width={40} height={40} />
@@ -21,7 +20,7 @@ export default function CryptoOptions() {
           </p>
         </div>
 
-        {/* Divider */}
+        {/* Divider (Visible only on larger screens) */}
         <div className="h-[120px] w-[2px] bg-gray-300 hidden md:block"></div>
 
         {/* Buy Crypto */}
@@ -30,7 +29,7 @@ export default function CryptoOptions() {
           <p className="text-base md:text-lg text-gray-800 mt-3">Buy Crypto</p>
         </div>
 
-        {/* Divider */}
+        {/* Divider (Visible only on larger screens) */}
         <div className="h-[120px] w-[2px] bg-gray-300 hidden md:block"></div>
 
         {/* Sell Crypto */}
