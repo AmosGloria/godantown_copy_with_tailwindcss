@@ -78,10 +78,10 @@ const FeaturedOn = () => {
 
   return (
     <div ref={sectionRef} className="flex flex-col items-center text-center px-3">
-      <h1 className="text-2xl font-bold mb-6 w-fit">We are featured on</h1>
+      <h1 className="text-2xl md:text-3xl font-bold mb-6 w-fit md:mt-0 mt-12">We are featured on</h1>
 
       {/* First Row - All Links Except Last */}
-      <div className="flex justify-center items-center flex-nowrap gap-x-6 w-full overflow-hidden">
+      <div className="md:flex justify-center items-center flex-nowrap gap-x-6 w-full sm:grid sm:grid-cols-2">
         {links.slice(0, links.length - 1).map((link, index) => (
           <div
             key={index}

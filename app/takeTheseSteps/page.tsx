@@ -40,7 +40,7 @@ const StepsNow: React.FC = () => {
         isAnimating ? "animate-moveDown" : ""
       }`}
     >
-      <h1 className="font-black text-[2.5rem] sm:text-[2rem] text-gray-900 mb-5">
+      <h1 className="font-black text-[2rem] sm:text-[3rem] text-gray-900 mb-5">
         Take these steps now!
       </h1>
       <p className="text-lg sm:text-base text-gray-700 mb-8">

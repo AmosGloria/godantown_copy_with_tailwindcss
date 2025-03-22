@@ -32,7 +32,7 @@ const BankOnYourTerms = () => {
   }, []);
 
   return (
-    <div className="mx-[10%] px-[5%] flex flex-col items-center text-center w-full">
+    <div className="mx-[6%] px-[3%] md:mx-[5%] md:px-[2%] flex flex-col items-center text-center w-full">
       <h1 className="text-3xl md:text-4xl font-extrabold text-black leading-tight mt-10">You Got It!<br />Bank on your Terms.</h1>
       <p className="text-base md:text-lg text-gray-600 mt-2.5 mb-6">We offer you 24/7 customer support, and our transactions are easy to
       <span className="block mt-2 text-lg"></span> carry out.</p>
