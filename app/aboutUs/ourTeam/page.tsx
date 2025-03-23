@@ -41,9 +41,10 @@ const OurTeam = () => {
         <span className="block mt-4">Team</span>
       </h1>
 
-      <div className="grid grid-cols-3 gap-x-0 gap-y-2 justify-items-center">
+      {/* Grid for desktop, stack and center for mobile */}
+      <div className="md:grid grid-cols-3 gap-x-0 gap-y-2 justify-items-center sm:flex sm:flex-col sm:items-center sm:text-center">
         {teamMembers.map((member, index) => (
-          <div key={index} className="flex flex-col items-center text-center bg-transparent shadow-none">
+          <div key={index} className="flex flex-col items-center text-center bg-transparent shadow-none sm:mb-8">
             <Image
               src={member.image}
               alt={member.name}
@@ -51,7 +52,7 @@ const OurTeam = () => {
               height={350}
               className="rounded-full w-[350px] h-[350px]"
             />
-            <div className="text-lg font-bold text-gray-900 mt-2 text-shadow transform perspective-[500px] rotate-x-[10deg]">
+            <div className="text-lg font-bold text-gray-900 mt-2">
               {member.name}
             </div>
             <p className="text-base text-gray-600 mt-1">{member.title}</p>
