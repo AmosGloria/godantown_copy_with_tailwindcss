@@ -120,13 +120,13 @@ export function Company() {
       <DropdownMenuContent>
         <ul className="space-y-3">
           <li>
-            <Link href="/aboutUs">About Us</Link>
+            <Link href="./aboutUs/aboutDantown">About Us</Link>
           </li>
           <li>
-            <Link href="/services">Services</Link>
+            <Link href="./aboutUs/ourServices">Services</Link>
           </li>
           <li>
-            <Link href="/ourTeam">Our Team</Link>
+            <Link href="./aboutUs/ourTeam">Our Team</Link>
           </li>
         </ul>
       </DropdownMenuContent>
